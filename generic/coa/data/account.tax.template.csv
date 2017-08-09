@@ -1,0 +1,7 @@
+id,chart_template_id/id,type_tax_use,description,name,type,amount,account_collected_id/id,account_paid_id/id,base_code_id/id,tax_code_id/id
+cooperate_wht_1,NSTDA_account_chart,purchase,WHT1,ภาษีหัก ณ ที่จ่ายนิติบุคคล 1%,percent,0.01,,,,
+sale_vat_7,NSTDA_account_chart,sale,S7,ภาษีขาย 7%,percent,0.07,,,,
+purchase_vat_7,NSTDA_account_chart,purchase,V7,ภาษีซื้อ 7%,percent,0.07,,,,
+personal_wht_tax_1,NSTDA_account_chart,purchase,,ภาษีหัก ณ ที่จ่ายบุคคลธรรมดา 1%,percent,0.01,,,,
+sale_undue_vat_7,NSTDA_account_chart,purchase,D7,พักภาษีซื้อ 7%,percent,0.07,,,,
+purchase_undue_vat_7,NSTDA_account_chart,sale,,พักภาษีขาย 7%,percent,0.07,,,,
