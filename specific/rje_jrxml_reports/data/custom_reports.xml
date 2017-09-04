@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<delete model="ir.actions.report.xml" search="[('id', '=', ref('purchase.action_report_purchase_order'))]" />
+	<delete model="ir.actions.report.xml" search="[('id', '=', ref('purchase.report_purchase_quotation'))]" />
+
+	# Purchase Order
+	<report string="Purchase Order"
+	    model="purchase.order"
+	    auto="True"
+	    name="rje.purchase.order.form"
+	    rml="rje_jrxml_reports/custom_reports/purchase_order.jrxml"
+	    id="rje_purchase_order"
+	    menu="True"
+	    header="False"
+	    />
+	<record id="rje_purchase_order" model="ir.actions.report.xml">
+	    <field name="jasper_report">True</field>
+	    <field name="jasper_output">pdf</field>
+	</record>
+
+	# Tax Invoice
+	<report string="Tax Invoice"
+		model="account.invoice"
+		auto="True"
+		name="rje.tax"
+		rml="rje_jrxml_reports/custom_reports/Tax_invoice.jrxml"
+		id="rje_tax_invoice"
+		menu="True"
+		header="False"
+		/>
+	<record id="rje_tax_invoice" model="ir.actions.report.xml">
+		<field name="jasper_report">True</field>
+		<field name="jasper_output">pdf</field>
+	</record>
+
+
+
+		# Receipt
+		<report string="Receipt"
+			model="account.voucher"
+			auto="True"
+			name="rje.receipt"
+			rml="rje_jrxml_reports/custom_reports/recipt.jrxml"
+			id="rje_receipt"
+			menu="True"
+			header="False"
+			/>
+		<record id="rje_receipt" model="ir.actions.report.xml">
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+		</record>
+
+
+
+				# Billing_form
+				<report string="Billing"
+					model="account.billing"
+					auto="True"
+					name="rje.billing"
+					rml="rje_jrxml_reports/custom_reports/billing_form.jrxml"
+					id="rje_billing"
+					menu="True"
+					header="False"
+					/>
+				<record id="rje_billing" model="ir.actions.report.xml">
+					<field name="jasper_report">True</field>
+					<field name="jasper_output">pdf</field>
+				</record>
+	<!-- # Purchase Order
+    <report string="Purchase Order"
+        model="purchase.order"
+        auto="True"
+        name="rje.purchase.order"
+        rml="jrxml_reports/custom_reports/purchase_order2.jrxml"
+        id="rje_purchase_order"
+        menu="True"
+        header="False"
+        />
+    <record id="rje_purchase_order" model="ir.actions.report.xml">
+        <field name="jasper_report">True</field>
+        <field name="jasper_output">pdf</field>
+    </record> -->
+
+</data>
+</openerp>
