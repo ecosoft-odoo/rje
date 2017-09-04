@@ -1,0 +1,15 @@
+diff --git a/jasper_reports/jasper_report.py b/jasper_reports/jasper_report.py
+index 2f2fd6d..dab55d6 100644
+--- a/jasper_reports/jasper_report.py
++++ b/jasper_reports/jasper_report.py
+@@ -86,6 +86,10 @@ class Report:
+         data = self.pool.get('ir.actions.report.xml').read(self.cr, self.uid, ids[0], ['report_rml', 'jasper_output', 'copies', 'force_locale'])
+         copies = data['copies'] or 1
+         force_locale = data['force_locale'] or False
++
++        if force_locale:
++            self.context.update({'lang': force_locale})
++
+         results = []
+         if data['jasper_output']:
+             self.outputFormat = data['jasper_output']
