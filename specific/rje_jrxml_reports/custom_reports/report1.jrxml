@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="247" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="221" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[นามลูกค้า]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="150" width="126" height="15"/>
+				<textElement/>
+				<text><![CDATA[ใบส่งสินค้า / ใบกำกับภาษี]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="165" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Invoice/Tax invoice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="185" width="143" height="20"/>
+				<textElement/>
+				<text><![CDATA[เลขประจำตัวผู้เสียภาษีอากร]]></text>
+			</staticText>
+			<line>
+				<reportElement x="56" y="78" width="503" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="75" y="48" width="486" height="30"/>
+				<textElement>
+					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[Head Office : 416 Moo2,Bangplee-tamrue Road, Tambol Phreksamai, Amphur Muang,Samutprakarn 10280, Thailand]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="37" width="449" height="30"/>
+				<textElement>
+					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[สำนักงานใหญ่ : 416 หมู่ 2 ถ.บางพลี-ตำหรุ ต.เเพรกษาใหม่ อ.เมือง จ.สมุทรปราการ 10280]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="10" width="249" height="32"/>
+				<textElement>
+					<font fontName="Garuda" size="12" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ห้างหุ่นส่วนจำกัด ราชาวิศวกรรมจักรกล]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="23" width="203" height="30"/>
+				<textElement>
+					<font fontName="Garuda" size="11" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[Raja Engineering Machine LTD., Part.]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="274" height="66"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "Workspace1_002.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="75" y="59" width="484" height="30"/>
+				<textElement>
+					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[TEL.(622) 703-6806-10 FAX.(662) 703-6811 E-mail : contact@rjemc.com Tax ID: 0 11 3 525 00075 7]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
