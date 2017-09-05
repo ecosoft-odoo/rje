@@ -20,6 +20,21 @@
 	    <field name="jasper_output">pdf</field>
 	</record>
 
+	# Customer Refund
+	<report string="Customer Refund"
+			model="account.invoice"
+			auto="True"
+			name="rje.customer.refund.form"
+			rml="rje_jrxml_reports/custom_reports/credit_notes.jrxml"
+			id="rje_customer_refund"
+			menu="True"
+			header="False"
+			/>
+	<record id="rje_customer_refund" model="ir.actions.report.xml">
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+	</record>
+
 	# Tax Invoice
 	<report string="Tax Invoice"
 		model="account.invoice"
@@ -34,8 +49,6 @@
 		<field name="jasper_report">True</field>
 		<field name="jasper_output">pdf</field>
 	</record>
-
-
 
 		# Receipt
 		<report string="Receipt"
