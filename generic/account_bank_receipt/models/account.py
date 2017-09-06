@@ -51,6 +51,7 @@ class AccountMove(models.Model):
 
     @api.multi
     def _create_bank_receipt(self, receipt_date):
+        print self
         first_move = self[0]
         receipt_vals = self._prepare_bank_receipt(first_move, receipt_date)
         domain = [('move_id', 'in', self._ids),  # Find for all selected moves
