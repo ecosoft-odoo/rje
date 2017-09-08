@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="credit_notes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="96"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;invoice_line&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString language="xPath">
@@ -119,6 +119,10 @@
 	</background>
 	<pageHeader>
 		<band height="241" splitType="Stretch">
+			<image>
+				<reportElement x="1" y="2" width="255" height="44"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "Workspace1_002.png"]]></imageExpression>
+			</image>
 			<staticText>
 				<reportElement x="210" y="57" width="154" height="30"/>
 				<textElement textAlignment="Center">
@@ -131,7 +135,7 @@
 				<textElement>
 					<font fontName="Garuda" size="12" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[ห้างหุ่นส่วนจำกัด ราชาวิศวกรรมจักรกล]]></text>
+				<text><![CDATA[ห้างหุ้นส่วนจำกัด ราชาวิศวกรรมจักรกล]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="16" width="203" height="30"/>
@@ -142,7 +146,7 @@
 			</staticText>
 			<staticText>
 				<reportElement x="324" y="9" width="136" height="23"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[(สำนักงานใหญ่)]]></text>
@@ -169,7 +173,7 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{partner_id}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="405" y="57" width="110" height="45"/>
+				<reportElement x="405" y="57" width="110" height="35"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -197,10 +201,6 @@
 				</textElement>
 				<text><![CDATA[ทาง หจก. ราชาวิศวกรรมจักรกล ได้เคดิตบัญชีของท่านตามรายการต่อไปนี้]]></text>
 			</staticText>
-			<image>
-				<reportElement x="1" y="2" width="251" height="44"/>
-				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "Workspace1_002.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="405" y="102" width="24" height="20"/>
 				<textElement>
@@ -267,7 +267,7 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="23" splitType="Stretch">
+		<band height="26" splitType="Stretch">
 			<staticText>
 				<reportElement x="3" y="2" width="50" height="17"/>
 				<textElement textAlignment="Center">
@@ -361,11 +361,11 @@
 	<pageFooter>
 		<band height="243">
 			<staticText>
-				<reportElement x="46" y="196" width="480" height="20"/>
+				<reportElement x="22" y="196" width="513" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[416 หมู่ 2 ถ.บางพลี-ตำหรุ ต.เเพรกษาใหม่ อ.เมือง จ.สมุทรปราการ 10280]]></text>
+				<text><![CDATA[สำนักงานใหญ่ : 416 หมู่ 2 ถ.บางพลี-ตำหรุ ต.เเพรกษาใหม่ อ.เมือง จ.สมุทรปราการ 10280]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="342" y="95" width="135" height="21"/>
@@ -375,11 +375,11 @@
 				<text><![CDATA[รวมจำนวนเงินที่ลดหนี้]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="208" width="480" height="20"/>
+				<reportElement x="22" y="208" width="513" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[416 Moo2,Bangplee-tamrue Road, Tambol Phreksamai, Amphur Muang,Samutprakarn 10280, Thailand]]></text>
+				<text><![CDATA[Head Office : 416 Moo2, Bangplee-tamrue Road, Tambol Phrekasamai, Amphur Muang, Samutprakarn 10280, Thailand]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="345" y="146" width="55" height="18"/>
@@ -410,11 +410,11 @@
 				<text><![CDATA[เหตุผลในการลดหนี้]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="220" width="480" height="20"/>
+				<reportElement x="22" y="220" width="513" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[TEL.(622) 703-6806-10 FAX.(662) 703-6811 E-mail : contact@rjemc.com]]></text>
+				<text><![CDATA[TEL.(662) 703-6806-10 FAX.(662) 703-6811 E-mail : contact@rjemc.com]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="342" y="51" width="135" height="21"/>
@@ -506,25 +506,25 @@
 				<text><![CDATA[รวมจำนวนเงินที่ลดหนี้]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="47" y="193" width="480" height="20"/>
+				<reportElement x="22" y="193" width="513" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[416 หมู่ 2 ถ.บางพลี-ตำหรุ ต.เเพรกษาใหม่ อ.เมือง จ.สมุทรปราการ 10280]]></text>
+				<text><![CDATA[สำนักงานใหญ่ : 416 หมู่ 2 ถ.บางพลี-ตำหรุ ต.เเพรกษาใหม่ อ.เมือง จ.สมุทรปราการ 10280]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="47" y="205" width="480" height="20"/>
+				<reportElement x="22" y="205" width="513" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[416 Moo2,Bangplee-tamrue Road, Tambol Phreksamai, Amphur Muang,Samutprakarn 10280, Thailand]]></text>
+				<text><![CDATA[Head Office : 416 Moo2, Bangplee-tamrue Road, Tambol Phrekasamai, Amphur Muang, Samutprakarn 10280, Thailand]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="47" y="217" width="480" height="20"/>
+				<reportElement x="22" y="217" width="513" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[TEL.(622) 703-6806-10 FAX.(662) 703-6811 E-mail : contact@rjemc.com]]></text>
+				<text><![CDATA[TEL.(662) 703-6806-10 FAX.(662) 703-6811 E-mail : contact@rjemc.com]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="57" y="92" width="27" height="18"/>
