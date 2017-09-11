@@ -50,6 +50,7 @@
 		<field name="jasper_output">pdf</field>
 	</record>
 
+
 		# Receipt
 		<report string="Receipt"
 			model="account.voucher"
@@ -66,21 +67,20 @@
 		</record>
 
 
-
-				# Billing_form
-				<report string="Billing"
-					model="account.billing"
-					auto="True"
-					name="rje.billing"
-					rml="rje_jrxml_reports/custom_reports/billing_form.jrxml"
-					id="rje_billing"
-					menu="True"
-					header="False"
-					/>
-				<record id="rje_billing" model="ir.actions.report.xml">
-					<field name="jasper_report">True</field>
-					<field name="jasper_output">pdf</field>
-				</record>
+		# Billing_form
+		<report string="Billing"
+			model="account.billing"
+			auto="True"
+			name="rje.billing"
+			rml="rje_jrxml_reports/custom_reports/billing_form.jrxml"
+			id="rje_billing"
+			menu="True"
+			header="False"
+			/>
+		<record id="rje_billing" model="ir.actions.report.xml">
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+		</record>
 	<!-- # Purchase Order
     <report string="Purchase Order"
         model="purchase.order"

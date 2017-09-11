@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="recipt" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="11"/>
-	<property name="ireport.y" value="336"/>
+	<property name="ireport.x" value="8"/>
+	<property name="ireport.y" value="384"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;line_cr_ids&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<parameterDescription><![CDATA[]]></parameterDescription>
@@ -10,8 +10,11 @@
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
 	</queryString>
-	<field name="price_subtotal" class="java.lang.Number">
+	<field name="price_subtotal_dr" class="java.lang.Number">
 		<fieldDescription><![CDATA[line_dr_ids/amount]]></fieldDescription>
+	</field>
+	<field name="price_subtotal_cr" class="java.lang.Number">
+		<fieldDescription><![CDATA[line_cr_ids/amount]]></fieldDescription>
 	</field>
 	<field name="amount" class="java.lang.Number">
 		<fieldDescription><![CDATA[amount]]></fieldDescription>
@@ -19,8 +22,11 @@
 	<field name="date_original" class="java.util.Date">
 		<fieldDescription><![CDATA[date]]></fieldDescription>
 	</field>
-	<field name="invoice_no" class="java.lang.String">
+	<field name="invoice_no_dr" class="java.lang.String">
 		<fieldDescription><![CDATA[line_dr_ids/move_line_id/invoice/number]]></fieldDescription>
+	</field>
+	<field name="invoice_no_cr" class="java.lang.String">
+		<fieldDescription><![CDATA[line_cr_ids/move_line_id/invoice/number]]></fieldDescription>
 	</field>
 	<field name="partner_id" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/name]]></fieldDescription>
@@ -38,8 +44,14 @@
 	<field name="zip" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/zip]]></fieldDescription>
 	</field>
-	<field name="date" class="java.util.Date">
+	<field name="date_dr" class="java.util.Date">
 		<fieldDescription><![CDATA[line_dr_ids/date_original]]></fieldDescription>
+	</field>
+	<field name="date_cr" class="java.util.Date">
+		<fieldDescription><![CDATA[line_cr_ids/date_original]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[type]]></fieldDescription>
 	</field>
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount}==null?0:$F{amount}*100)/100).toString()]]></variableExpression>
@@ -285,6 +297,13 @@
 	</columnHeader>
 	<detail>
 		<band height="23" splitType="Stretch">
+			<textField pattern="###0.00;###0.00-">
+				<reportElement x="452" y="3" width="102" height="20"/>
+				<textElement textAlignment="Right">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$F{type} == "receipt" ? $F{price_subtotal_cr} == null ? 0 : $F{price_subtotal_cr} : $F{price_subtotal_dr} == null ? 0 : $F{price_subtotal_dr}]]></textFieldExpression>
+			</textField>
 			<textField>
 				<reportElement x="1" y="3" width="50" height="20"/>
 				<textElement textAlignment="Center">
@@ -292,26 +311,19 @@
 				</textElement>
 				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
-			<textField pattern="###0.00;###0.00-">
-				<reportElement x="452" y="3" width="102" height="20"/>
-				<textElement textAlignment="Right">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$F{price_subtotal}==null?0:$F{price_subtotal}]]></textFieldExpression>
-			</textField>
 			<textField>
 				<reportElement x="224" y="3" width="224" height="20"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{invoice_no}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{type} == "receipt" ? $F{invoice_no_cr} : $F{invoice_no_dr}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="57" y="3" width="160" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{date}]]></textFieldExpression>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{type} == "receipt" ? $F{date_cr} : $F{date_dr}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -398,7 +410,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[Manager]]></text>
+				<text><![CDATA[MANAGER]]></text>
 			</staticText>
 			<line>
 				<reportElement x="40" y="83" width="150" height="1"/>
