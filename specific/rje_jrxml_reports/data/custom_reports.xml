@@ -5,6 +5,21 @@
 	<delete model="ir.actions.report.xml" search="[('id', '=', ref('purchase.action_report_purchase_order'))]" />
 	<delete model="ir.actions.report.xml" search="[('id', '=', ref('purchase.report_purchase_quotation'))]" />
 
+	# Quotation
+	<report string="Quotation"
+			model="sale.order"
+			auto="True"
+			name="rje.sale.order.form"
+			rml="rje_jrxml_reports/custom_reports/quotation.jrxml"
+			id="rje_sale_order_quotation"
+			menu="True"
+			header="False"
+			/>
+	<record id="rje_sale_order_quotation" model="ir.actions.report.xml">
+			<field name="jasper_report">True</field>
+			<field name="jasper_output">pdf</field>
+	</record>
+
 	# Purchase Order
 	<report string="Purchase Order"
 	    model="purchase.order"
