@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
-
+      
         <record id="view_sales_order_filter" model="ir.ui.view">
             <field name="name">view.sales.order.filter</field>
             <field name="model">sale.order</field>
