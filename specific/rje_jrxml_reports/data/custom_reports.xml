@@ -2,6 +2,7 @@
 <openerp>
 <data>
 
+	<delete model="ir.actions.report.xml" search="[('id', '=', ref('sale.report_sale_order'))]" />
 	<delete model="ir.actions.report.xml" search="[('id', '=', ref('purchase.action_report_purchase_order'))]" />
 	<delete model="ir.actions.report.xml" search="[('id', '=', ref('purchase.report_purchase_quotation'))]" />
 

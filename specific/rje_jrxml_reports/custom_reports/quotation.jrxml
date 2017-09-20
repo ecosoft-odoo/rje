@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="336"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,1670,2356"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
@@ -26,9 +26,6 @@
 	</field>
 	<field name="street" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/street]]></fieldDescription>
-	</field>
-	<field name="minidate" class="java.util.Date">
-		<fieldDescription><![CDATA[minimum_planned_date]]></fieldDescription>
 	</field>
 	<field name="amount_total" class="java.lang.Number">
 		<fieldDescription><![CDATA[amount_total]]></fieldDescription>
@@ -84,11 +81,23 @@
 	<field name="zip" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/zip]]></fieldDescription>
 	</field>
+	<field name="price_reduce" class="java.lang.String">
+		<fieldDescription><![CDATA[sale_total]]></fieldDescription>
+	</field>
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount_total}==null?0:$F{amount_total}*100)/100).toString()]]></variableExpression>
 	</variable>
 	<variable name="unit" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{product_qty}*100)/100).toString()]]></variableExpression>
+	</variable>
+	<variable name="price_subtotal" class="java.lang.Number">
+		<variableExpression><![CDATA[$F{price_unit} * $F{product_qty}]]></variableExpression>
+	</variable>
+	<variable name="amount_before_discount" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[$V{price_subtotal}]]></variableExpression>
+	</variable>
+	<variable name="discount" class="java.lang.Number">
+		<variableExpression><![CDATA[$V{amount_before_discount} - $F{amount_untaxed}]]></variableExpression>
 	</variable>
 	<background>
 		<band height="802">
@@ -175,7 +184,7 @@
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$F{price_subtotal}==null?0:$F{price_subtotal}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{price_subtotal}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -224,6 +233,21 @@
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA["(" + (new Scriptlet()).getAmtInWords((new BigDecimal($V{string_total}==""?0:$V{string_total})).setScale(2).toString(),"THB") + ")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="40" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{price_reduce}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="12" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{amount_before_discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{discount}]]></textFieldExpression>
 			</textField>
 		</band>
 	</lastPageFooter>
