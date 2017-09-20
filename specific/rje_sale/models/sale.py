@@ -25,7 +25,7 @@ class SaleOrder(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)],
                 'sent': [('readonly', False)]},
-    ).
+    )
     drawing_number = fields.Char(
         string='Drwaing Number',
         related='order_line.drawing_number',
