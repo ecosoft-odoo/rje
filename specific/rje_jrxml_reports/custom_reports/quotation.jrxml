@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="192"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,1670,2356"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
@@ -26,9 +26,6 @@
 	</field>
 	<field name="street" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/street]]></fieldDescription>
-	</field>
-	<field name="minidate" class="java.util.Date">
-		<fieldDescription><![CDATA[minimum_planned_date]]></fieldDescription>
 	</field>
 	<field name="amount_total" class="java.lang.Number">
 		<fieldDescription><![CDATA[amount_total]]></fieldDescription>
@@ -84,11 +81,32 @@
 	<field name="zip" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/zip]]></fieldDescription>
 	</field>
+	<field name="price_reduce" class="java.lang.String">
+		<fieldDescription><![CDATA[sale_total]]></fieldDescription>
+	</field>
+	<field name="attention" class="java.lang.String">
+		<fieldDescription><![CDATA[attention]]></fieldDescription>
+	</field>
+	<field name="day_delivery_term" class="java.lang.String">
+		<fieldDescription><![CDATA[day_delivery_term]]></fieldDescription>
+	</field>
+	<field name="preprint_number" class="java.lang.String">
+		<fieldDescription><![CDATA[preprint_number]]></fieldDescription>
+	</field>
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount_total}==null?0:$F{amount_total}*100)/100).toString()]]></variableExpression>
 	</variable>
 	<variable name="unit" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{product_qty}*100)/100).toString()]]></variableExpression>
+	</variable>
+	<variable name="price_subtotal" class="java.lang.Number">
+		<variableExpression><![CDATA[$F{price_unit} * $F{product_qty}]]></variableExpression>
+	</variable>
+	<variable name="amount_before_discount" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[$V{price_subtotal}]]></variableExpression>
+	</variable>
+	<variable name="discount" class="java.lang.Number">
+		<variableExpression><![CDATA[$V{amount_before_discount} - $F{amount_untaxed}]]></variableExpression>
 	</variable>
 	<background>
 		<band height="802">
@@ -101,7 +119,7 @@
 	<pageHeader>
 		<band height="277" splitType="Stretch">
 			<textField pattern="dd/MM/yyyy HH.mm.ss">
-				<reportElement x="381" y="173" width="125" height="20"/>
+				<reportElement x="394" y="173" width="100" height="20"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -127,6 +145,27 @@
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{payment_terms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="172" width="250" height="20"/>
+				<textElement>
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{attention}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="199" width="118" height="20"/>
+				<textElement>
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{day_delivery_term}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="41" width="52" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{preprint_number} + ")"]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -175,7 +214,7 @@
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$F{price_subtotal}==null?0:$F{price_subtotal}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$F{price_subtotal} == null?0:$F{price_subtotal}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -190,40 +229,54 @@
 		</band>
 	</pageFooter>
 	<lastPageFooter>
-		<band height="280">
+		<band height="300">
 			<textField pattern="###0.00;###0.00-">
-				<reportElement x="479" y="40" width="54" height="20"/>
+				<reportElement x="479" y="59" width="54" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_tax}==null?0:$F{amount_tax}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.00;###0.00-">
-				<reportElement x="479" y="12" width="54" height="20"/>
+				<reportElement x="479" y="32" width="54" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_untaxed}==null?0:$F{amount_untaxed}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.00;###0.00-">
-				<reportElement x="479" y="67" width="54" height="20"/>
+				<reportElement x="479" y="86" width="54" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_total}==null?0:$F{amount_total}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="86" y="97" width="421" height="80"/>
+				<reportElement mode="Transparent" x="86" y="116" width="421" height="80"/>
 				<box topPadding="0" bottomPadding="0"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{note}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="50" y="36" width="281" height="20" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="50" y="55" width="281" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA["(" + (new Scriptlet()).getAmtInWords((new BigDecimal($V{string_total}==""?0:$V{string_total})).setScale(2).toString(),"THB") + ")"]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;###0.00-">
+				<reportElement x="479" y="9" width="54" height="20"/>
+				<textElement textAlignment="Right">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="9" width="60" height="20"/>
+				<textElement textAlignment="Justified">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["** ส่วนลด **"]]></textFieldExpression>
 			</textField>
 		</band>
 	</lastPageFooter>

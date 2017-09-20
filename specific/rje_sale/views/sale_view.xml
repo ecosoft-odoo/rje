@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="view_sales_order_filter" model="ir.ui.view">
+            <field name="name">view.sales.order.filter</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="drawing_number"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_order_form">
+            <field name="name">view.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="attention"/>
+                    <field name="preprint_number"/>
+                </field>
+                <field name="client_order_ref" position="after">
+                    <field name="day_delivery_term"/>
+                </field>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='price_subtotal']" position="before">
+                    <field name="drawing_number"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
+                    <field name="drawing_number"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
