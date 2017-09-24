@@ -56,7 +56,7 @@
 		model="account.invoice"
 		auto="True"
 		name="rje.tax"
-		rml="rje_jrxml_reports/custom_reports/Tax_invoice.jrxml"
+		rml="rje_jrxml_reports/custom_reports/tax_invoice.jrxml"
 		id="rje_tax_invoice"
 		menu="True"
 		header="False"
@@ -110,20 +110,21 @@
         <field name="jasper_report">True</field>
         <field name="jasper_output">pdf</field>
     </record>
-
+		
 		# Receipt Voucher
-	    <report string="Receipt Voucher"
-	        model="account.voucher"
-	        auto="True"
-	        name="rje.receipt.voucher"
-	        rml="rje_jrxml_reports/custom_reports/receipt_voucher.jrxml"
-	        id="rje_receipt_voucher"
-	        menu="True"
-	        header="False"
-	        />
-	    <record id="rje_receipt_voucher" model="ir.actions.report.xml">
-	        <field name="jasper_report">True</field>
-	        <field name="jasper_output">pdf</field>
-	    </record>
+			<report string="Receipt Voucher"
+					model="account_voucher"
+					auto="True"
+					name="rje.receipt.voucher"
+					rml="rje_jrxml_reports/custom_reports/receipt_voucher.jrxml"
+					id="rje_receipt_voucher"
+					menu="True"
+					header="False"
+					/>
+			<record id="rje_receipt_voucher" model="ir.actions.report.xml">
+					<field name="jasper_report">True</field>
+					<field name="jasper_output">pdf</field>
+			</record>
+
 </data>
 </openerp>
