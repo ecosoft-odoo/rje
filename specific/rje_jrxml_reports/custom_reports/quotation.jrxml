@@ -112,7 +112,7 @@
 		<band height="802">
 			<image>
 				<reportElement x="1" y="2" width="552" height="800"/>
-				<imageExpression class="java.lang.String"><![CDATA["/home/patthama/workspace/rje/specific/rje_jrxml_reports/custom_reports/quotation.png"]]></imageExpression>
+				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "quotation.png"]]></imageExpression>
 			</image>
 		</band>
 	</background>
