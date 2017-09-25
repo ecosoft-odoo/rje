@@ -173,9 +173,9 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{partner_id}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="405" y="57" width="110" height="35"/>
+				<reportElement x="405" y="57" width="118" height="30"/>
 				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font fontName="SansSerif" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[เลขประจำตัวผู้เสียภาษีอากร
 0 11 3 525 00075 7]]></text>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="recipt" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="8"/>
-	<property name="ireport.y" value="384"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="480"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;line_cr_ids&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<parameterDescription><![CDATA[]]></parameterDescription>
@@ -10,22 +10,19 @@
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
 	</queryString>
-	<field name="price_subtotal_dr" class="java.lang.Number">
-		<fieldDescription><![CDATA[line_dr_ids/amount]]></fieldDescription>
+	<field name="receipt_number" class="java.lang.String">
+		<fieldDescription><![CDATA[number]]></fieldDescription>
 	</field>
-	<field name="price_subtotal_cr" class="java.lang.Number">
+	<field name="price_subtotal" class="java.lang.Number">
 		<fieldDescription><![CDATA[line_cr_ids/amount]]></fieldDescription>
 	</field>
 	<field name="amount" class="java.lang.Number">
 		<fieldDescription><![CDATA[amount]]></fieldDescription>
 	</field>
-	<field name="date_original" class="java.util.Date">
+	<field name="date" class="java.util.Date">
 		<fieldDescription><![CDATA[date]]></fieldDescription>
 	</field>
-	<field name="invoice_no_dr" class="java.lang.String">
-		<fieldDescription><![CDATA[line_dr_ids/move_line_id/invoice/number]]></fieldDescription>
-	</field>
-	<field name="invoice_no_cr" class="java.lang.String">
+	<field name="invoice_no" class="java.lang.String">
 		<fieldDescription><![CDATA[line_cr_ids/move_line_id/invoice/number]]></fieldDescription>
 	</field>
 	<field name="partner_id" class="java.lang.String">
@@ -44,14 +41,8 @@
 	<field name="zip" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/zip]]></fieldDescription>
 	</field>
-	<field name="date_dr" class="java.util.Date">
-		<fieldDescription><![CDATA[line_dr_ids/date_original]]></fieldDescription>
-	</field>
-	<field name="date_cr" class="java.util.Date">
+	<field name="date_original" class="java.util.Date">
 		<fieldDescription><![CDATA[line_cr_ids/date_original]]></fieldDescription>
-	</field>
-	<field name="type" class="java.lang.String">
-		<fieldDescription><![CDATA[type]]></fieldDescription>
 	</field>
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount}==null?0:$F{amount}*100)/100).toString()]]></variableExpression>
@@ -62,7 +53,7 @@
 				<reportElement x="1" y="180" width="554" height="480"/>
 			</rectangle>
 			<line>
-				<reportElement x="51" y="180" width="1" height="439"/>
+				<reportElement x="51" y="180" width="1" height="451"/>
 			</line>
 			<line>
 				<reportElement x="1" y="215" width="554" height="1"/>
@@ -71,24 +62,24 @@
 				<reportElement x="452" y="180" width="1" height="480"/>
 			</line>
 			<line>
-				<reportElement x="1" y="618" width="554" height="1"/>
+				<reportElement x="1" y="631" width="554" height="1"/>
 			</line>
 			<staticText>
-				<reportElement x="412" y="640" width="37" height="20"/>
+				<reportElement x="412" y="647" width="37" height="20"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font fontName="SansSerif" size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Total]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="412" y="627" width="37" height="20"/>
+				<reportElement x="412" y="634" width="37" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[รวม]]></text>
 			</staticText>
 			<line>
-				<reportElement x="219" y="180" width="1" height="439"/>
+				<reportElement x="219" y="180" width="1" height="451"/>
 			</line>
 		</band>
 	</background>
@@ -99,7 +90,7 @@
 				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "Workspace1_002.png"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="438" y="3" width="116" height="97"/>
+				<reportElement x="438" y="17" width="116" height="97"/>
 				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "receipt.png"]]></imageExpression>
 			</image>
 			<line>
@@ -134,7 +125,7 @@
 				<text><![CDATA[TEL. (662) 703-6806-10  FAX. (662) 703-6811 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="14" y="96" width="70" height="20"/>
+				<reportElement x="14" y="96" width="59" height="20"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -143,7 +134,7 @@
 			<staticText>
 				<reportElement x="458" y="108" width="40" height="20"/>
 				<textElement>
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Date]]></text>
 			</staticText>
@@ -155,21 +146,15 @@
 				<text><![CDATA[ที่อยู่]]></text>
 			</staticText>
 			<line>
-				<reportElement x="57" y="144" width="493" height="1"/>
+				<reportElement x="51" y="144" width="499" height="1"/>
 			</line>
 			<staticText>
-				<reportElement x="440" y="46" width="114" height="19"/>
+				<reportElement x="440" y="60" width="114" height="21"/>
 				<textElement textAlignment="Center">
 					<font size="9" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[เลขประจำตัวผู้เสียภาษีอากร]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="440" y="59" width="114" height="19"/>
-				<textElement textAlignment="Center">
-					<font size="9" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[0 11 3 525 00075 7]]></text>
+				<text><![CDATA[เลขประจำตัวผู้เสียภาษีอากร
+0 11 3 525 00075 7]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="195" y="168" width="208" height="15"/>
@@ -179,14 +164,14 @@
 				<text><![CDATA[เพื่อชำระค่าสินค้าตามรายการดังต่อไปนี้]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="15" y="108" width="70" height="20"/>
+				<reportElement x="15" y="108" width="59" height="20"/>
 				<textElement>
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Recived from]]></text>
 			</staticText>
 			<line>
-				<reportElement x="85" y="109" width="367" height="1"/>
+				<reportElement x="74" y="109" width="378" height="1"/>
 			</line>
 			<staticText>
 				<reportElement x="457" y="96" width="40" height="20"/>
@@ -199,9 +184,9 @@
 				<reportElement x="483" y="109" width="68" height="1"/>
 			</line>
 			<staticText>
-				<reportElement x="14" y="144" width="50" height="20"/>
+				<reportElement x="14" y="142" width="50" height="20"/>
 				<textElement>
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Address]]></text>
 			</staticText>
@@ -220,18 +205,32 @@
 				<textFieldExpression class="java.util.Date"><![CDATA[$F{date_original}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="85" y="97" width="364" height="20"/>
+				<reportElement x="76" y="97" width="372" height="20"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{partner_id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="58" y="132" width="493" height="20"/>
+				<reportElement x="51" y="131" width="493" height="20"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{street} + " " + $F{street2} + " " + $F{city} + " " + $F{zip}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="449" y="2" width="24" height="20"/>
+				<textElement>
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[เลขที่]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="473" y="2" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{receipt_number}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -247,7 +246,7 @@
 			<staticText>
 				<reportElement x="1" y="13" width="50" height="18"/>
 				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Item]]></text>
 			</staticText>
@@ -261,7 +260,7 @@
 			<staticText>
 				<reportElement x="224" y="13" width="224" height="18"/>
 				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Invoice No.]]></text>
 			</staticText>
@@ -275,7 +274,7 @@
 			<staticText>
 				<reportElement x="452" y="13" width="102" height="18"/>
 				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Amount]]></text>
 			</staticText>
@@ -289,46 +288,46 @@
 			<staticText>
 				<reportElement x="57" y="13" width="160" height="18"/>
 				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Date]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="23" splitType="Stretch">
-			<textField pattern="###0.00;###0.00-">
-				<reportElement x="452" y="3" width="102" height="20"/>
-				<textElement textAlignment="Right">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$F{type} == "receipt" ? $F{price_subtotal_cr} == null ? 0 : $F{price_subtotal_cr} : $F{price_subtotal_dr} == null ? 0 : $F{price_subtotal_dr}]]></textFieldExpression>
-			</textField>
+		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="1" y="3" width="50" height="20"/>
+				<reportElement x="1" y="0" width="50" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="224" y="3" width="224" height="20"/>
+				<reportElement x="224" y="0" width="224" height="20"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{type} == "receipt" ? $F{invoice_no_cr} : $F{invoice_no_dr}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{invoice_no}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="57" y="3" width="160" height="20"/>
+				<reportElement x="57" y="0" width="160" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{type} == "receipt" ? $F{date_cr} : $F{date_dr}]]></textFieldExpression>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{date_original}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="452" y="0" width="102" height="20"/>
+				<textElement textAlignment="Right">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$F{price_subtotal}==null?0:$F{price_subtotal}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="172" splitType="Stretch">
+		<band height="165" splitType="Stretch">
 			<staticText>
 				<reportElement x="61" y="92" width="100" height="20"/>
 				<textElement textAlignment="Center">
@@ -337,7 +336,7 @@
 				<text><![CDATA[ผู้รับเงิน]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="147" width="555" height="20"/>
+				<reportElement x="0" y="145" width="555" height="20"/>
 				<textElement textAlignment="Center">
 					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -346,7 +345,7 @@
 			<staticText>
 				<reportElement x="61" y="105" width="100" height="20"/>
 				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[COLLECTOR]]></text>
 			</staticText>
@@ -363,7 +362,7 @@
 			<staticText>
 				<reportElement x="375" y="105" width="112" height="20"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font fontName="SansSerif" size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[MANAGER]]></text>
 			</staticText>
@@ -373,9 +372,9 @@
 		</band>
 	</pageFooter>
 	<lastPageFooter>
-		<band height="172">
+		<band height="165">
 			<staticText>
-				<reportElement x="1" y="147" width="555" height="20"/>
+				<reportElement x="1" y="142" width="555" height="20"/>
 				<textElement textAlignment="Center">
 					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -384,7 +383,7 @@
 			<staticText>
 				<reportElement x="62" y="105" width="100" height="20"/>
 				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[COLLECTOR]]></text>
 			</staticText>
@@ -408,7 +407,7 @@
 			<staticText>
 				<reportElement x="376" y="105" width="112" height="20"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font fontName="SansSerif" size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[MANAGER]]></text>
 			</staticText>
@@ -416,14 +415,14 @@
 				<reportElement x="40" y="83" width="150" height="1"/>
 			</line>
 			<textField>
-				<reportElement mode="Transparent" x="15" y="6" width="386" height="20" backcolor="#FFFFFF"/>
+				<reportElement mode="Transparent" x="15" y="4" width="386" height="20" backcolor="#FFFFFF"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA["(" + (new Scriptlet()).getAmtInWords((new BigDecimal($V{string_total}==""?0:$V{string_total})).setScale(2).toString(),"THB") + ")"]]></textFieldExpression>
 			</textField>
-			<textField pattern="###0.00;###0.00-">
-				<reportElement x="452" y="6" width="102" height="20"/>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="452" y="4" width="102" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
