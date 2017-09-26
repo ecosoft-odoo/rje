@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="851"/>
+	<property name="ireport.y" value="0"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,1670,2356"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
@@ -12,20 +12,53 @@
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
 	</queryString>
+	<field name="quotation_number" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
 	<field name="date" class="java.util.Date">
 		<fieldDescription><![CDATA[date_order]]></fieldDescription>
 	</field>
-	<field name="name" class="java.lang.String">
-		<fieldDescription><![CDATA[name]]></fieldDescription>
+	<field name="attention" class="java.lang.String">
+		<fieldDescription><![CDATA[attention]]></fieldDescription>
 	</field>
 	<field name="partner_name" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/name]]></fieldDescription>
 	</field>
-	<field name="product_name" class="java.lang.String">
-		<fieldDescription><![CDATA[order_line/product_id/name]]></fieldDescription>
+	<field name="day_delivery_term" class="java.lang.String">
+		<fieldDescription><![CDATA[day_delivery_term]]></fieldDescription>
+	</field>
+	<field name="deposit" class="java.lang.Number">
+		<fieldDescription><![CDATA[invoice_plan_wd_ids/deposit_percent]]></fieldDescription>
+	</field>
+	<field name="payment_terms" class="java.lang.String">
+		<fieldDescription><![CDATA[payment_term/name]]></fieldDescription>
 	</field>
 	<field name="street" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/street]]></fieldDescription>
+	</field>
+	<field name="street2" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/street2]]></fieldDescription>
+	</field>
+	<field name="city" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/city]]></fieldDescription>
+	</field>
+	<field name="zip" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/zip]]></fieldDescription>
+	</field>
+	<field name="description" class="java.lang.String">
+		<fieldDescription><![CDATA[order_line/name]]></fieldDescription>
+	</field>
+	<field name="product_qty" class="java.lang.Number">
+		<fieldDescription><![CDATA[order_line/product_uom_qty]]></fieldDescription>
+	</field>
+	<field name="product_unit" class="java.lang.String">
+		<fieldDescription><![CDATA[order_line/product_uom/name]]></fieldDescription>
+	</field>
+	<field name="price_unit" class="java.lang.Number">
+		<fieldDescription><![CDATA[order_line/price_unit]]></fieldDescription>
+	</field>
+	<field name="price_subtotal" class="java.lang.Number">
+		<fieldDescription><![CDATA[order_line/price_subtotal]]></fieldDescription>
 	</field>
 	<field name="amount_total" class="java.lang.Number">
 		<fieldDescription><![CDATA[amount_total]]></fieldDescription>
@@ -36,62 +69,8 @@
 	<field name="amount_untaxed" class="java.lang.Number">
 		<fieldDescription><![CDATA[amount_untaxed]]></fieldDescription>
 	</field>
-	<field name="description" class="java.lang.String">
-		<fieldDescription><![CDATA[order_line/name]]></fieldDescription>
-	</field>
-	<field name="date_planned" class="java.util.Date">
-		<fieldDescription><![CDATA[date_planned]]></fieldDescription>
-	</field>
-	<field name="product_qty" class="java.lang.Number">
-		<fieldDescription><![CDATA[order_line/product_uom_qty]]></fieldDescription>
-	</field>
-	<field name="price_unit" class="java.lang.Number">
-		<fieldDescription><![CDATA[order_line/price_unit]]></fieldDescription>
-	</field>
-	<field name="price_subtotal" class="java.lang.Number">
-		<fieldDescription><![CDATA[order_line/price_subtotal]]></fieldDescription>
-	</field>
-	<field name="city" class="java.lang.String">
-		<fieldDescription><![CDATA[partner_id/city]]></fieldDescription>
-	</field>
-	<field name="street2" class="java.lang.String">
-		<fieldDescription><![CDATA[partner_id/street2]]></fieldDescription>
-	</field>
-	<field name="phone" class="java.lang.String">
-		<fieldDescription><![CDATA[partner_id/phone]]></fieldDescription>
-	</field>
-	<field name="fax" class="java.lang.String">
-		<fieldDescription><![CDATA[partner_id/fax]]></fieldDescription>
-	</field>
-	<field name="email" class="java.lang.String">
-		<fieldDescription><![CDATA[partner_id/email]]></fieldDescription>
-	</field>
-	<field name="product_unit" class="java.lang.String">
-		<fieldDescription><![CDATA[order_line/product_uom/name]]></fieldDescription>
-	</field>
-	<field name="ref" class="java.lang.String">
-		<fieldDescription><![CDATA[partner_ref]]></fieldDescription>
-	</field>
-	<field name="payment_terms" class="java.lang.String">
-		<fieldDescription><![CDATA[payment_term/name]]></fieldDescription>
-	</field>
 	<field name="note" class="java.lang.String">
 		<fieldDescription><![CDATA[note]]></fieldDescription>
-	</field>
-	<field name="zip" class="java.lang.String">
-		<fieldDescription><![CDATA[partner_id/zip]]></fieldDescription>
-	</field>
-	<field name="price_reduce" class="java.lang.String">
-		<fieldDescription><![CDATA[sale_total]]></fieldDescription>
-	</field>
-	<field name="attention" class="java.lang.String">
-		<fieldDescription><![CDATA[attention]]></fieldDescription>
-	</field>
-	<field name="day_delivery_term" class="java.lang.String">
-		<fieldDescription><![CDATA[day_delivery_term]]></fieldDescription>
-	</field>
-	<field name="preprint_number" class="java.lang.String">
-		<fieldDescription><![CDATA[preprint_number]]></fieldDescription>
 	</field>
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount_total}==null?0:$F{amount_total}*100)/100).toString()]]></variableExpression>
@@ -118,7 +97,7 @@
 	</background>
 	<pageHeader>
 		<band height="277" splitType="Stretch">
-			<textField pattern="dd/MM/yyyy HH.mm.ss">
+			<textField pattern="dd/MM/yyyy HH.mm.ss" isBlankWhenNull="true">
 				<reportElement x="394" y="173" width="100" height="20"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
@@ -126,15 +105,15 @@
 				<textFieldExpression class="java.util.Date"><![CDATA[$F{date}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="82" y="199" width="250" height="20"/>
-				<textElement>
+				<reportElement x="82" y="192" width="260" height="28"/>
+				<textElement verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{partner_name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="82" y="229" width="250" height="43"/>
-				<textElement>
+				<reportElement x="82" y="223" width="260" height="37"/>
+				<textElement verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{street} + " " + $F{street2} + " " + $F{city} + " " + $F{zip}]]></textFieldExpression>
@@ -147,7 +126,7 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{payment_terms}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="82" y="172" width="250" height="20"/>
+				<reportElement x="82" y="172" width="260" height="20"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -161,11 +140,18 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{day_delivery_term}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="472" y="41" width="52" height="15"/>
+				<reportElement x="442" y="41" width="82" height="15"/>
 				<textElement textAlignment="Center">
 					<font size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{preprint_number} + ")"]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{quotation_number}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00" isBlankWhenNull="false">
+				<reportElement x="485" y="223" width="64" height="20"/>
+				<textElement>
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deposit}==null?"":$F{deposit}.toString() + "%"]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -186,7 +172,7 @@
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{product_name}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00">
 				<reportElement x="341" y="2" width="41" height="20"/>
@@ -214,7 +200,7 @@
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$F{price_subtotal} == null?0:$F{price_subtotal}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{price_subtotal}==null?0:$V{price_subtotal}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

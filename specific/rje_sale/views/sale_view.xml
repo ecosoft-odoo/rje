@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
-      
+
         <record id="view_sales_order_filter" model="ir.ui.view">
             <field name="name">view.sales.order.filter</field>
             <field name="model">sale.order</field>
@@ -25,7 +25,7 @@
                 <field name="client_order_ref" position="after">
                     <field name="day_delivery_term"/>
                 </field>
-                <xpath expr="//field[@name='order_line']/tree//field[@name='price_subtotal']" position="before">
+                <xpath expr="//field[@name='order_line']/tree//field[@name='name']" position="after">
                     <field name="drawing_number"/>
                 </xpath>
                 <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
