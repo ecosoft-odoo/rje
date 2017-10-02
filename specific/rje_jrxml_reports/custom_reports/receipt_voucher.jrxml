@@ -654,14 +654,14 @@
 				<imageExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "Workspace1_002.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="5" y="94" width="90" height="22"/>
+				<reportElement mode="Opaque" x="5" y="85" width="90" height="22"/>
 				<textElement>
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Customer Name :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="401" y="93" width="53" height="22"/>
+				<reportElement x="427" y="93" width="53" height="22"/>
 				<textElement>
 					<font fontName="Garuda" size="11" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -689,28 +689,28 @@
 				<text><![CDATA[RECEIPT VOUCHER]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement x="457" y="93" width="95" height="22"/>
+				<reportElement x="477" y="93" width="75" height="22"/>
 				<textElement verticalAlignment="Middle">
 					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.util.Date"><![CDATA[$F{receipt_date}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="401" y="52" width="151" height="22"/>
+				<reportElement x="426" y="52" width="126" height="22"/>
 				<textElement>
 					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{receipt_number}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="446" y="72" width="106" height="22"/>
+				<reportElement x="473" y="72" width="79" height="22"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{receipt_state}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="401" y="72" width="46" height="22"/>
+				<reportElement x="427" y="72" width="46" height="22"/>
 				<box>
 					<bottomPen lineWidth="0.0"/>
 				</box>
@@ -727,7 +727,7 @@
 				<text><![CDATA[Invoice No.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="99" y="94" width="302" height="22"/>
+				<reportElement x="99" y="77" width="321" height="39"/>
 				<textElement verticalAlignment="Middle">
 					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
