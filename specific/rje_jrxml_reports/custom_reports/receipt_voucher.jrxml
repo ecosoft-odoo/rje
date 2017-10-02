@@ -1,21 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="receipt_voucher" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="210"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;line_cr_ids&quot;]"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<parameter name="EVENTS_DATA_SOURCE" class="java.lang.Object"/>
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
 	</queryString>
 	<field name="partner_name" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/name]]></fieldDescription>
 	</field>
-	<field name="date" class="java.util.Date">
-		<fieldDescription><![CDATA[date]]></fieldDescription>
+	<field name="receipt_number" class="java.lang.String">
+		<fieldDescription><![CDATA[bank_receipt_id/name]]></fieldDescription>
 	</field>
-	<field name="number" class="java.lang.String">
-		<fieldDescription><![CDATA[number]]></fieldDescription>
+	<field name="receipt_state" class="java.lang.String">
+		<fieldDescription><![CDATA[bank_receipt_id/state]]></fieldDescription>
+	</field>
+	<field name="receipt_date" class="java.util.Date">
+		<fieldDescription><![CDATA[bank_receipt_id/receipt_date]]></fieldDescription>
+	</field>
+	<field name="invoice_date" class="java.util.Date">
+		<fieldDescription><![CDATA[line_cr_ids/date_original]]></fieldDescription>
+	</field>
+	<field name="invoice_no" class="java.lang.String">
+		<fieldDescription><![CDATA[line_cr_ids/move_line_id/invoice/number]]></fieldDescription>
 	</field>
 	<field name="amount_original" class="java.lang.Number">
 		<fieldDescription><![CDATA[line_cr_ids/amount_original]]></fieldDescription>
@@ -23,58 +245,405 @@
 	<field name="amount_unreconciled" class="java.lang.Number">
 		<fieldDescription><![CDATA[line_cr_ids/amount_unreconciled]]></fieldDescription>
 	</field>
-	<field name="amount" class="java.lang.Number">
+	<field name="amount_allocation" class="java.lang.Number">
 		<fieldDescription><![CDATA[line_cr_ids/amount]]></fieldDescription>
 	</field>
-	<field name="cheque_no" class="java.lang.String">
-		<fieldDescription><![CDATA[number_cheque]]></fieldDescription>
+	<field name="amount" class="java.lang.Number">
+		<fieldDescription><![CDATA[amount]]></fieldDescription>
 	</field>
 	<field name="bank_cheque" class="java.lang.String">
 		<fieldDescription><![CDATA[bank_cheque]]></fieldDescription>
 	</field>
-	<field name="bank_branch" class="java.lang.String">
+	<field name="bank_cheque_branch" class="java.lang.String">
 		<fieldDescription><![CDATA[bank_branch]]></fieldDescription>
 	</field>
-	<field name="date_value" class="java.util.Date">
-		<fieldDescription><![CDATA[date_value]]></fieldDescription>
+	<field name="cheque_no" class="java.lang.String">
+		<fieldDescription><![CDATA[number_cheque]]></fieldDescription>
 	</field>
-	<field name="amount_overdue" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="invoice_no" class="java.lang.String">
-		<fieldDescription><![CDATA[line_cr_ids/move_line_id/invoice/number]]></fieldDescription>
-	</field>
-	<field name="date_cheque" class="java.util.Date">
+	<field name="cheque_date" class="java.util.Date">
 		<fieldDescription><![CDATA[date_cheque]]></fieldDescription>
 	</field>
-	<field name="state" class="java.lang.String">
-		<fieldDescription><![CDATA[state]]></fieldDescription>
+	<field name="date_validate" class="java.util.Date">
+		<fieldDescription><![CDATA[bank_receipt_id/validate_date]]></fieldDescription>
 	</field>
+	<field name="total_amount" class="java.lang.Number">
+		<fieldDescription><![CDATA[bank_receipt_id/total_amount]]></fieldDescription>
+	</field>
+	<field name="bank_receipt" class="java.lang.String">
+		<fieldDescription><![CDATA[bank_receipt_id/partner_bank_id/acc_number]]></fieldDescription>
+	</field>
+	<field name="bank_receipt_branch" class="java.lang.String">
+		<fieldDescription><![CDATA[bank_receipt_id/partner_bank_id/bank_branch]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<variable name="amount_paid" class="java.lang.Number">
+		<variableExpression><![CDATA[$F{amount_original}-$F{amount_unreconciled}]]></variableExpression>
+	</variable>
+	<variable name="amount_owe" class="java.lang.Number">
+		<variableExpression><![CDATA[$F{amount_original} - ($V{amount_paid}+$F{amount_allocation})]]></variableExpression>
+	</variable>
+	<variable name="total_allocation" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[$F{amount_allocation}]]></variableExpression>
+	</variable>
+	<group name="net" isStartNewPage="true" footerPosition="StackAtBottom">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupFooter>
+			<band height="241">
+				<staticText>
+					<reportElement x="351" y="-1" width="103" height="22"/>
+					<textElement textAlignment="Right">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[ยอดรับชำระสุทธิ]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement x="455" y="-1" width="98" height="22"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="284" y="187" width="60" height="25"/>
+					<textElement>
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Booked By]]></text>
+				</staticText>
+				<line>
+					<reportElement x="477" y="199" width="75" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="137" y="212" width="26" height="25"/>
+					<textElement>
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Date]]></text>
+				</staticText>
+				<line>
+					<reportElement x="31" y="223" width="98" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="388" y="130" width="68" height="22"/>
+					<textElement textAlignment="Right">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[รวมเงินโอน]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="426" y="212" width="26" height="25"/>
+					<textElement>
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="212" width="26" height="25"/>
+					<textElement>
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="187" width="52" height="25"/>
+					<textElement>
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Approved By]]></text>
+				</staticText>
+				<line>
+					<reportElement x="341" y="199" width="75" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="388" y="106" width="68" height="22"/>
+					<textElement textAlignment="Right">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[รวมเงินสด]]></text>
+				</staticText>
+				<line>
+					<reportElement x="318" y="222" width="98" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="388" y="154" width="68" height="22"/>
+					<textElement textAlignment="Right">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[รวมทั้งหมด]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="137" y="187" width="60" height="25"/>
+					<textElement>
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Account By]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="426" y="187" width="50" height="25"/>
+					<textElement>
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Received By]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="388" y="82" width="68" height="22"/>
+					<textElement textAlignment="Right">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[รวมเช็ค]]></text>
+				</staticText>
+				<line>
+					<reportElement x="199" y="199" width="75" height="1"/>
+				</line>
+				<line>
+					<reportElement x="54" y="198" width="75" height="1"/>
+				</line>
+				<line>
+					<reportElement x="168" y="224" width="106" height="1"/>
+				</line>
+				<line>
+					<reportElement x="454" y="221" width="98" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="284" y="212" width="26" height="25"/>
+					<textElement>
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Date]]></text>
+				</staticText>
+				<line>
+					<reportElement x="151" y="24" width="1" height="54"/>
+				</line>
+				<staticText>
+					<reportElement x="5" y="24" width="100" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Bank/Branch]]></text>
+				</staticText>
+				<line>
+					<reportElement x="310" y="24" width="1" height="54"/>
+				</line>
+				<staticText>
+					<reportElement x="158" y="24" width="80" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Check No.]]></text>
+				</staticText>
+				<line>
+					<reportElement x="109" y="24" width="1" height="54"/>
+				</line>
+				<staticText>
+					<reportElement x="247" y="24" width="60" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Due Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="315" y="24" width="60" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Amount]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="382" y="24" width="60" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Pay in Date]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="1" y="24" width="553" height="54"/>
+				</rectangle>
+				<textField>
+					<reportElement x="158" y="53" width="80" height="20"/>
+					<textElement>
+						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{cheque_no}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="449" y="24" width="100" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Bank/Branch]]></text>
+				</staticText>
+				<line>
+					<reportElement x="2" y="47" width="552" height="1"/>
+				</line>
+				<line>
+					<reportElement x="241" y="24" width="1" height="54"/>
+				</line>
+				<staticText>
+					<reportElement x="113" y="24" width="35" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Type]]></text>
+				</staticText>
+				<line>
+					<reportElement x="378" y="24" width="1" height="54"/>
+				</line>
+				<line>
+					<reportElement x="444" y="24" width="1" height="54"/>
+				</line>
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="382" y="53" width="60" height="20"/>
+					<textElement textAlignment="Center">
+						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{date_validate}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="110" y="24" width="1" height="54"/>
+				</line>
+				<line>
+					<reportElement x="151" y="24" width="1" height="54"/>
+				</line>
+				<line>
+					<reportElement x="309" y="24" width="1" height="54"/>
+				</line>
+				<staticText>
+					<reportElement x="5" y="24" width="100" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Bank/Branch]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="157" y="24" width="80" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Check No.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="246" y="24" width="60" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Due Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="314" y="24" width="60" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Amount]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="381" y="24" width="60" height="22"/>
+					<textElement textAlignment="Center">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[Pay in Date]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="5" y="53" width="100" height="20"/>
+					<textElement>
+						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{bank_cheque} == "" || $F{bank_cheque_branch}== ""? $F{bank_cheque} + $F{bank_cheque_branch} : $F{bank_cheque} + "/" + $F{bank_cheque_branch}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="246" y="53" width="60" height="20"/>
+					<textElement textAlignment="Center">
+						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{cheque_date}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+					<reportElement x="309" y="53" width="65" height="20"/>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Number"><![CDATA[$F{total_amount}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="448" y="53" width="100" height="20"/>
+					<textElement>
+						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{bank_receipt} == "" || $F{bank_receipt_branch}== ""? $F{bank_receipt} + $F{bank_receipt_branch} : $F{bank_receipt} + "/" + $F{bank_receipt_branch}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+					<reportElement x="467" y="154" width="88" height="22"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Number"><![CDATA[$F{total_amount}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="reconcile" isStartNewPage="true" footerPosition="StackAtBottom" keepTogether="true">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupFooter>
+			<band height="22">
+				<printWhenExpression><![CDATA[$V{total_allocation}!=$F{amount}]]></printWhenExpression>
+				<subreport>
+					<reportElement x="5" y="0" width="543" height="22"/>
+					<dataSourceExpression><![CDATA[$P{EVENTS_DATA_SOURCE}]]></dataSourceExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "receipt_voucher_subreport2.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="total" isStartNewPage="true" isReprintHeaderOnEachPage="true" footerPosition="StackAtBottom">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupFooter>
+			<band height="22">
+				<staticText>
+					<reportElement x="386" y="0" width="68" height="22"/>
+					<textElement textAlignment="Right">
+						<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<text><![CDATA[รวม]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;(#,##0.00)">
+					<reportElement x="455" y="0" width="98" height="22"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Number"><![CDATA[$V{total_allocation}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
 	<background>
 		<band height="802">
 			<rectangle>
-				<reportElement x="0" y="117" width="555" height="366"/>
+				<reportElement x="0" y="117" width="555" height="341"/>
 			</rectangle>
 			<line>
-				<reportElement x="39" y="117" width="1" height="366"/>
+				<reportElement x="31" y="117" width="1" height="341"/>
 			</line>
 			<line>
-				<reportElement x="149" y="117" width="1" height="366"/>
+				<reportElement x="97" y="117" width="1" height="341"/>
 			</line>
 			<line>
-				<reportElement x="257" y="117" width="1" height="366"/>
+				<reportElement x="204" y="117" width="1" height="341"/>
 			</line>
 			<line>
-				<reportElement x="391" y="117" width="1" height="366"/>
+				<reportElement x="419" y="117" width="1" height="341"/>
 			</line>
 			<line>
-				<reportElement x="474" y="117" width="1" height="366"/>
+				<reportElement x="488" y="117" width="1" height="341"/>
 			</line>
 			<line>
 				<reportElement x="0" y="141" width="555" height="1"/>
 			</line>
 			<line>
-				<reportElement x="320" y="117" width="1" height="366"/>
+				<reportElement x="350" y="117" width="1" height="341"/>
+			</line>
+			<line>
+				<reportElement x="277" y="117" width="1" height="341"/>
 			</line>
 		</band>
 	</background>
@@ -119,6 +688,27 @@
 				</textElement>
 				<text><![CDATA[RECEIPT VOUCHER]]></text>
 			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="457" y="93" width="95" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{receipt_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="52" width="151" height="22"/>
+				<textElement>
+					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{receipt_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="446" y="72" width="106" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{receipt_state}.toUpperCase()]]></textFieldExpression>
+			</textField>
 			<staticText>
 				<reportElement x="401" y="72" width="46" height="22"/>
 				<box>
@@ -137,67 +727,46 @@
 				<text><![CDATA[Invoice No.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="99" y="98" width="280" height="20"/>
-				<textElement>
+				<reportElement x="99" y="94" width="302" height="22"/>
+				<textElement verticalAlignment="Middle">
 					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{partner_name}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="457" y="98" width="95" height="20"/>
-				<textElement>
-					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{date}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="401" y="52" width="151" height="22"/>
-				<textElement>
-					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{number}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="446" y="77" width="106" height="20"/>
-				<textElement>
-					<font isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{state}.toUpperCase()]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="26" splitType="Stretch">
 			<staticText>
-				<reportElement x="257" y="1" width="60" height="22"/>
+				<reportElement x="204" y="1" width="70" height="22"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[ยอดเต็ม]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="474" y="1" width="78" height="22"/>
+				<reportElement x="489" y="1" width="63" height="22"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[ยอดค้างชำระ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="320" y="1" width="68" height="22"/>
+				<reportElement x="278" y="1" width="68" height="22"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[ยอดสุทธิ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="1" width="105" height="22"/>
+				<reportElement x="30" y="1" width="65" height="22"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[Invoice No.]]></text>
+				<text><![CDATA[Date]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="5" y="1" width="26" height="22"/>
+				<reportElement x="2" y="1" width="26" height="22"/>
 				<box>
 					<pen lineStyle="Solid"/>
 					<topPen lineStyle="Solid"/>
@@ -211,577 +780,86 @@
 				<text><![CDATA[#]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="391" y="1" width="80" height="22"/>
+				<reportElement x="419" y="1" width="69" height="22"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[ชำระครั้งนี้]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="149" y="1" width="105" height="22"/>
+				<reportElement x="100" y="1" width="100" height="22"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Invoice No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="1" width="62" height="22"/>
+				<textElement textAlignment="Center">
+					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ชำระแล้ว]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="21" splitType="Stretch">
 			<textField>
-				<reportElement x="5" y="1" width="26" height="20"/>
+				<reportElement x="2" y="1" width="26" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;(#,##0.00)">
-				<reportElement x="257" y="1" width="60" height="20"/>
+				<reportElement x="204" y="1" width="70" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_original}==null?0:$F{amount_original}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;(#,##0.00)">
-				<reportElement x="320" y="1" width="68" height="20"/>
+				<reportElement x="278" y="1" width="68" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_unreconciled}==null?0:$F{amount_unreconciled}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;(#,##0.00)">
-				<reportElement x="391" y="1" width="80" height="20"/>
+				<reportElement x="418" y="1" width="69" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount}==null?0:$F{amount}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_allocation}==null?0:$F{amount_allocation}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;(#,##0.00)">
-				<reportElement x="474" y="1" width="78" height="20"/>
+				<reportElement x="489" y="1" width="63" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_original} - $F{amount}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{amount_owe}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="41" y="1" width="105" height="20"/>
+				<reportElement x="100" y="1" width="100" height="20"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{invoice_no}]]></textFieldExpression>
 			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="30" y="1" width="65" height="20"/>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{invoice_date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+				<reportElement x="354" y="1" width="62" height="20"/>
+				<textElement textAlignment="Right">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{amount_paid}==null?0:$V{amount_paid}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
-	<pageFooter>
-		<band height="310" splitType="Stretch">
-			<rectangle>
-				<reportElement x="1" y="76" width="553" height="54"/>
-			</rectangle>
-			<line>
-				<reportElement x="54" y="266" width="75" height="1"/>
-			</line>
-			<line>
-				<reportElement x="341" y="267" width="75" height="1"/>
-			</line>
-			<line>
-				<reportElement x="199" y="267" width="75" height="1"/>
-			</line>
-			<staticText>
-				<reportElement x="320" y="0" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวม]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="285" y="25" width="103" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[ค่าธรรมเนียมธนาคาร]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="285" y="50" width="103" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[ยอดรับชำระสุทธิ]]></text>
-			</staticText>
-			<line>
-				<reportElement x="1" y="99" width="553" height="1"/>
-			</line>
-			<line>
-				<reportElement x="109" y="76" width="1" height="54"/>
-			</line>
-			<line>
-				<reportElement x="151" y="76" width="1" height="54"/>
-			</line>
-			<line>
-				<reportElement x="241" y="76" width="1" height="54"/>
-			</line>
-			<line>
-				<reportElement x="310" y="76" width="1" height="54"/>
-			</line>
-			<line>
-				<reportElement x="378" y="76" width="1" height="54"/>
-			</line>
-			<line>
-				<reportElement x="444" y="76" width="1" height="54"/>
-			</line>
-			<staticText>
-				<reportElement x="5" y="76" width="100" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Bank/Branch]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="113" y="76" width="35" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Type]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="158" y="76" width="80" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Check No.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="246" y="76" width="60" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Due Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="314" y="76" width="60" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Amount]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="381" y="76" width="60" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Pay in Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="449" y="76" width="100" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Bank/Branch]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="320" y="135" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวมเช็ค]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="320" y="161" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวมเงินสด]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="320" y="187" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวมเงินโอน]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="320" y="212" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวมทั้งหมด]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="1" y="255" width="52" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Approved By]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="137" y="255" width="60" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Account By]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="284" y="255" width="60" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Booked By]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="426" y="255" width="50" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Received By]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="1" y="280" width="26" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="137" y="280" width="26" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="284" y="280" width="26" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="426" y="280" width="26" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Date]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="158" y="105" width="80" height="20"/>
-				<textElement>
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{cheque_no}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement x="382" y="105" width="60" height="20"/>
-				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{date_value}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="477" y="267" width="75" height="1"/>
-			</line>
-			<line>
-				<reportElement x="31" y="291" width="98" height="1"/>
-			</line>
-			<line>
-				<reportElement x="168" y="292" width="106" height="1"/>
-			</line>
-			<line>
-				<reportElement x="318" y="290" width="98" height="1"/>
-			</line>
-			<line>
-				<reportElement x="454" y="289" width="98" height="1"/>
-			</line>
-			<textField>
-				<reportElement x="5" y="105" width="100" height="20"/>
-				<textElement>
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{bank_cheque} == "" || $F{bank_branch}== ""? $F{bank_cheque} + $F{bank_branch} : $F{bank_cheque} + "/" + $F{bank_branch}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement x="246" y="105" width="60" height="20"/>
-				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{date_cheque}]]></textFieldExpression>
-			</textField>
-		</band>
-	</pageFooter>
-	<lastPageFooter>
-		<band height="310">
-			<staticText>
-				<reportElement x="320" y="3" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวม]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="284" y="256" width="60" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Booked By]]></text>
-			</staticText>
-			<line>
-				<reportElement x="477" y="268" width="75" height="1"/>
-			</line>
-			<staticText>
-				<reportElement x="137" y="281" width="26" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Date]]></text>
-			</staticText>
-			<line>
-				<reportElement x="31" y="292" width="98" height="1"/>
-			</line>
-			<staticText>
-				<reportElement x="285" y="28" width="103" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[ค่าธรรมเนียมธนาคาร]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="320" y="190" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวมเงินโอน]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="426" y="281" width="26" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="1" y="281" width="26" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="1" y="256" width="52" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Approved By]]></text>
-			</staticText>
-			<line>
-				<reportElement x="341" y="268" width="75" height="1"/>
-			</line>
-			<staticText>
-				<reportElement x="320" y="164" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวมเงินสด]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="285" y="53" width="103" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[ยอดรับชำระสุทธิ]]></text>
-			</staticText>
-			<line>
-				<reportElement x="318" y="291" width="98" height="1"/>
-			</line>
-			<staticText>
-				<reportElement x="320" y="215" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวมทั้งหมด]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="137" y="256" width="60" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Account By]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="426" y="256" width="50" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Received By]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="320" y="138" width="68" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[รวมเช็ค]]></text>
-			</staticText>
-			<line>
-				<reportElement x="199" y="268" width="75" height="1"/>
-			</line>
-			<line>
-				<reportElement x="54" y="267" width="75" height="1"/>
-			</line>
-			<line>
-				<reportElement x="168" y="293" width="106" height="1"/>
-			</line>
-			<line>
-				<reportElement x="454" y="290" width="98" height="1"/>
-			</line>
-			<staticText>
-				<reportElement x="284" y="281" width="26" height="25"/>
-				<textElement>
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Date]]></text>
-			</staticText>
-			<line>
-				<reportElement x="151" y="80" width="1" height="54"/>
-			</line>
-			<staticText>
-				<reportElement x="5" y="80" width="100" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Bank/Branch]]></text>
-			</staticText>
-			<line>
-				<reportElement x="310" y="80" width="1" height="54"/>
-			</line>
-			<staticText>
-				<reportElement x="158" y="80" width="80" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Check No.]]></text>
-			</staticText>
-			<line>
-				<reportElement x="109" y="80" width="1" height="54"/>
-			</line>
-			<staticText>
-				<reportElement x="247" y="80" width="60" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Due Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="315" y="80" width="60" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Amount]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="382" y="80" width="60" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Pay in Date]]></text>
-			</staticText>
-			<rectangle>
-				<reportElement x="1" y="80" width="553" height="54"/>
-			</rectangle>
-			<textField>
-				<reportElement x="158" y="109" width="80" height="20"/>
-				<textElement>
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{cheque_no}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="449" y="80" width="100" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Bank/Branch]]></text>
-			</staticText>
-			<line>
-				<reportElement x="2" y="103" width="552" height="1"/>
-			</line>
-			<line>
-				<reportElement x="241" y="80" width="1" height="54"/>
-			</line>
-			<staticText>
-				<reportElement x="113" y="80" width="35" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Type]]></text>
-			</staticText>
-			<line>
-				<reportElement x="378" y="80" width="1" height="54"/>
-			</line>
-			<line>
-				<reportElement x="444" y="80" width="1" height="54"/>
-			</line>
-			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement x="382" y="109" width="60" height="20"/>
-				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{date_value}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="110" y="80" width="1" height="54"/>
-			</line>
-			<line>
-				<reportElement x="151" y="80" width="1" height="54"/>
-			</line>
-			<line>
-				<reportElement x="309" y="80" width="1" height="54"/>
-			</line>
-			<staticText>
-				<reportElement x="5" y="80" width="100" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Bank/Branch]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="157" y="80" width="80" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Check No.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="246" y="80" width="60" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Due Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="314" y="80" width="60" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Amount]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="381" y="80" width="60" height="22"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Pay in Date]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="5" y="109" width="100" height="20"/>
-				<textElement>
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{bank_cheque} == "" || $F{bank_branch}== ""? $F{bank_cheque} + $F{bank_branch} : $F{bank_cheque} + "/" + $F{bank_branch}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement x="246" y="109" width="60" height="20"/>
-				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{date_cheque}]]></textFieldExpression>
-			</textField>
-		</band>
-	</lastPageFooter>
 </jasperReport>
