@@ -12,3 +12,6 @@ class PurchaseOrder(models.Model):
         states={'draft': [('readonly', False)],
                 'sent': [('readonly', False)]},
     )
+    authorized_id = fields.Many2one('hr.employee',
+        string='Authorized Signature',
+    )

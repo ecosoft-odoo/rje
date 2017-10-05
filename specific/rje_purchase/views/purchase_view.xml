@@ -10,6 +10,9 @@
                 <field name="date_order" position="after">
                     <field name="attention"/>
                 </field>
+                <field name="validator" position="after">
+                    <field name="authorized_id"/>
+                </field>
             </field>
         </record>
 
