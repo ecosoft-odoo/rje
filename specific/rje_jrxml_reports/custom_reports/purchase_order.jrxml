@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="purchase_order" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="210"/>
-	<property name="ireport.y" value="565"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="768"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString language="xPath">
@@ -79,6 +79,12 @@
 	</field>
 	<field name="zip" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/zip]]></fieldDescription>
+	</field>
+	<field name="validator" class="java.lang.String">
+		<fieldDescription><![CDATA[validator/name]]></fieldDescription>
+	</field>
+	<field name="authorized" class="java.lang.String">
+		<fieldDescription><![CDATA[authorized_id/name]]></fieldDescription>
 	</field>
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount_total}==null?0:$F{amount_total}*100)/100).toString()]]></variableExpression>
@@ -574,21 +580,7 @@
 				<reportElement x="390" y="162" width="150" height="1"/>
 			</line>
 			<staticText>
-				<reportElement x="216" y="172" width="128" height="23"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[(Pisut tampatirut)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="401" y="172" width="133" height="23"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[(Nakarin sukvichitdacha)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="401" y="215" width="133" height="20"/>
+				<reportElement x="372" y="215" width="183" height="20"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[_____ / _____ / _____]]></text>
 			</staticText>
@@ -603,12 +595,12 @@
 				<reportElement x="205" y="162" width="150" height="1"/>
 			</line>
 			<staticText>
-				<reportElement x="216" y="215" width="128" height="20"/>
+				<reportElement x="182" y="215" width="196" height="20"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[_____ / _____ / _____]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="401" y="196" width="133" height="23"/>
+				<reportElement x="372" y="196" width="183" height="23"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -620,7 +612,7 @@
 				<text><![CDATA[(___________________)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="216" y="196" width="128" height="23"/>
+				<reportElement x="182" y="196" width="196" height="23"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -633,19 +625,26 @@
 				</textElement>
 				<text><![CDATA[Remark]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="182" y="172" width="196" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{validator} + ")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="172" width="183" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{authorized} + ")"]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 	<lastPageFooter>
 		<band height="240">
 			<staticText>
-				<reportElement x="217" y="169" width="128" height="23"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[(Pisut tampatirut)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="401" y="213" width="133" height="20"/>
+				<reportElement x="372" y="213" width="183" height="20"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[_____ / _____ / _____]]></text>
 			</staticText>
@@ -653,7 +652,7 @@
 				<reportElement x="15" y="156" width="150" height="1"/>
 			</line>
 			<staticText>
-				<reportElement x="217" y="213" width="128" height="20"/>
+				<reportElement x="183" y="213" width="196" height="20"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[_____ / _____ / _____]]></text>
 			</staticText>
@@ -665,7 +664,7 @@
 				<text><![CDATA[Acknowladge Signature]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="401" y="189" width="133" height="23"/>
+				<reportElement x="372" y="189" width="183" height="23"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -678,13 +677,6 @@
 				<reportElement x="24" y="213" width="131" height="20"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[_____ / _____ / _____]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="401" y="169" width="133" height="23"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[(Nakarin sukvichitdacha)]]></text>
 			</staticText>
 			<line>
 				<reportElement x="390" y="157" width="150" height="1"/>
@@ -723,7 +715,7 @@
 				<text><![CDATA[(___________________)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="217" y="189" width="128" height="23"/>
+				<reportElement x="183" y="189" width="196" height="23"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -750,6 +742,20 @@
 				</textElement>
 				<text><![CDATA[Remark]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="183" y="169" width="196" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{validator} + ")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="169" width="183" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{authorized} + ")"]]></textFieldExpression>
+			</textField>
 		</band>
 	</lastPageFooter>
 </jasperReport>
