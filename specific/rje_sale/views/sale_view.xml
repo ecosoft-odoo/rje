@@ -2,6 +2,7 @@
 <openerp>
     <data>
 
+        <!--Search-->
         <record id="view_sales_order_filter" model="ir.ui.view">
             <field name="name">view.sales.order.filter</field>
             <field name="model">sale.order</field>
@@ -13,11 +14,14 @@
             </field>
         </record>
 
+        <!--View-->
         <record model="ir.ui.view" id="view_order_form">
             <field name="name">view.order.form</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
+
+                <!--add field-->
                 <field name="partner_id" position="after">
                     <field name="attention"/>
                     <field name="preprint_number"/>
@@ -32,6 +36,7 @@
                     <field name="drawing_number"/>
                 </xpath>
 
+                <!--button invisible-->
                 <button name="action_quotation_send" states="draft" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </button>
@@ -46,12 +51,13 @@
                     <attribute name="invisible">True</attribute>
                 </button>
 
+                <!--
                 <button name="action_view_invoice" position="attributes">
-                    <attribute name="groups">account.group_account_user,	account.group_account_manager,	account.group_account_invoice</attribute>
+                    <attribute name="groups">account.group_account_user,account.group_account_manager,account.group_account_invoice</attribute>
                 </button>
-
+                -->
                 <button name="309" type="action" states="manual" position="attributes">
-                    <attribute name="groups">account.group_account_user,	account.group_account_manager,	account.group_account_invoice</attribute>
+                    <attribute name="groups">account.group_account_user,account.group_account_manager,account.group_account_invoice</attribute>
                 </button>
 
             </field>
