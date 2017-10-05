@@ -11,7 +11,7 @@
                     <field name="attention"/>
                 </field>
                 <field name="validator" position="after">
-                    <field name="authorized_id"/>
+                    <field name="authorized_employee_id"/>
                 </field>
             </field>
         </record>
