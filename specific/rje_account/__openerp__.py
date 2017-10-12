@@ -10,6 +10,7 @@
     'images': [],
     'depends': [
         'account',
+        'l10n_th_fields',
     ],
     'data': [
         'views/account_view.xml',
