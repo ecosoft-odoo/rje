@@ -2,6 +2,7 @@
 <openerp>
     <data>
 
+      <!--Customer Invoice-->
       <record model="ir.ui.view" id="invoice_form">
           <field name="name">account.invoice.form</field>
           <field name="model">account.invoice</field>
@@ -9,6 +10,21 @@
           <field name="arch" type="xml">
               <field name="fiscal_position" position="after">
                   <field name="preprint_number"/>
+              </field>
+          </field>
+      </record>
+
+      <!--Supplier Payment-->
+      <record model="ir.ui.view" id="view_vendor_payment_form">
+          <field name="name">view.vendor.payment.form</field>
+          <field name="model">account.voucher</field>
+          <field name="inherit_id" ref="l10n_th_fields.view_vendor_payment_form"/>
+          <field name="arch" type="xml">
+              <field name="bank_cheque" position="attributes">
+                  <attribute name="invisible">True</attribute>
+              </field>
+              <field name="bank_branch" position="attributes">
+                  <attribute name="invisible">True</attribute>
               </field>
           </field>
       </record>
