@@ -52,7 +52,7 @@
 	</record>
 
 	# Tax Invoice
-	<report string="Tax Invoice"
+	<report string="Invoice/Tax Invoice"
 		model="account.invoice"
 		auto="True"
 		name="rje.tax"
@@ -110,7 +110,7 @@
         <field name="jasper_report">True</field>
         <field name="jasper_output">pdf</field>
     </record>
-		
+
 		# Receipt Voucher
 			<report string="Receipt Voucher"
 					model="account_voucher"
