@@ -1,0 +1,13 @@
+id,name,code,report_type,close_method
+account.data_account_account_type_root_view,Root/View,Root/View,/,None
+account.data_account_account_type_view,View,View,/,None
+account.data_account_account_type_asset,Asset,Asset,Balance Sheet (Asset account),Balance
+account.data_account_account_type_receivable,Receivable,Receivable,Balance Sheet (Asset account),Unreconciled
+account.data_account_account_type_input_tax,Input Tax,Input Tax,Balance Sheet (Asset account),Unreconciled
+account.data_account_account_type_liability,Liability,Liability,Balance Sheet (Liability account),Balance
+account.data_account_account_type_payable,Payable,Payable,Balance Sheet (Liability account),Unreconciled
+account.data_account_account_type_output_tax,Output Tax,Output Tax,Balance Sheet (Liability account),Unreconciled
+account.data_account_account_type_equity,Equity,Equity,Balance Sheet (Liability account),Balance
+account.data_account_account_type_income,Income,Income,Profit & Loss (Income account),None
+account.data_account_account_type_expense,Expense,Expense,Profit & Loss (Expense account),None
+account.data_account_account_type_profit_and_loss,Profit and Loss,Profit and Loss,/,None
