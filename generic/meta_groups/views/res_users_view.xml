@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_users_tree" model="ir.ui.view">
+            <field name="name">res.users.tree</field>
+            <field name="model">res.users</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="base.view_users_tree"/>
+            <field name="arch" type="xml">
+                <field name="login_date" position="after">
+                    <field name="last_meta_group_id"/>
+                    <field name="last_meta_group_date"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
