@@ -35,6 +35,9 @@
                 <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
                     <field name="drawing_number"/>
                 </xpath>
+                <field name="user_id" position="after">
+                    <field name="approved_employee_id"/>
+                </field>
 
                 <!--button invisible-->
                 <button name="action_quotation_send" states="draft" position="attributes">

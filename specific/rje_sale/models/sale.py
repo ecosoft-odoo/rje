@@ -30,6 +30,9 @@ class SaleOrder(models.Model):
         string='Drwaing Number',
         related='order_line.drawing_number',
     )
+    approved_employee_id = fields.Many2one('hr.employee',
+        string='Approved by',
+    )
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
