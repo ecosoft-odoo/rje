@@ -61,6 +61,49 @@ class AccountInvoice(models.Model):
 class AccountVoucher(models.Model):
     _inherit = 'account.voucher'
 
+    number_cheque = fields.Char(
+        string='Cheque No.',
+        track_visibility='onchange',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'posted': [('readonly', False)]},
+    )
+    date_cheque = fields.Date(
+        string='Cheque Date',
+        track_visibility='onchange',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'posted': [('readonly', False)]},
+    )
+    bank_cheque = fields.Char(
+        string='Bank',
+        track_visibility='onchange',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'posted': [('readonly', False)]},
+    )
+    bank_branch = fields.Char(
+        string='Bank Branch',
+        track_visibility='onchange',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'posted': [('readonly', False)]},
+    )
+    pay_in_date = fields.Date(
+        string='Pay in Date',
+        track_visibility='onchange',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'posted': [('readonly', False)]},
+    )
+    bank_account = fields.Char(
+        string='Bank Account',
+        track_visibility='onchange',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'posted': [('readonly', False)]},
+    )
+
     def filter_print_report(self, res, reports):
         action = []
         if res.get('toolbar', False) and \
