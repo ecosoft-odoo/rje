@@ -8,47 +8,47 @@
 
 	# Quotation
 	<report string="Quotation"
-			model="sale.order"
-			auto="True"
-			name="rje.sale.order.form"
-			rml="rje_jrxml_reports/custom_reports/quotation.jrxml"
-			id="rje_sale_order_quotation"
-			menu="True"
-			header="False"
-			/>
+		model="sale.order"
+		auto="True"
+		name="rje.sale.order.form"
+		rml="rje_jrxml_reports/custom_reports/quotation.jrxml"
+		id="rje_sale_order_quotation"
+		menu="True"
+		header="False"
+	/>
 	<record id="rje_sale_order_quotation" model="ir.actions.report.xml">
-			<field name="jasper_report">True</field>
-			<field name="jasper_output">pdf</field>
+		<field name="jasper_report">True</field>
+		<field name="jasper_output">pdf</field>
 	</record>
 
 	# Purchase Order
 	<report string="Purchase Order"
-	    model="purchase.order"
-	    auto="True"
-	    name="rje.purchase.order.form"
-	    rml="rje_jrxml_reports/custom_reports/purchase_order.jrxml"
-	    id="rje_purchase_order"
-	    menu="True"
-	    header="False"
-	    />
+		model="purchase.order"
+		auto="True"
+		name="rje.purchase.order.form"
+		rml="rje_jrxml_reports/custom_reports/purchase_order.jrxml"
+		id="rje_purchase_order"
+		menu="True"
+		header="False"
+	/>
 	<record id="rje_purchase_order" model="ir.actions.report.xml">
-	    <field name="jasper_report">True</field>
-	    <field name="jasper_output">pdf</field>
+		<field name="jasper_report">True</field>
+		<field name="jasper_output">pdf</field>
 	</record>
 
 	# Customer Refund
 	<report string="Customer Refund"
-			model="account.invoice"
-			auto="True"
-			name="rje.customer.refund.form"
-			rml="rje_jrxml_reports/custom_reports/credit_notes.jrxml"
-			id="rje_customer_refund"
-			menu="True"
-			header="False"
-			/>
+		model="account.invoice"
+		auto="True"
+		name="rje.customer.refund.form"
+		rml="rje_jrxml_reports/custom_reports/credit_notes.jrxml"
+		id="rje_customer_refund"
+		menu="True"
+		header="False"
+	/>
 	<record id="rje_customer_refund" model="ir.actions.report.xml">
-			<field name="jasper_report">True</field>
-			<field name="jasper_output">pdf</field>
+		<field name="jasper_report">True</field>
+		<field name="jasper_output">pdf</field>
 	</record>
 
 	# Tax Invoice
@@ -60,7 +60,7 @@
 		id="rje_tax_invoice"
 		menu="True"
 		header="False"
-		/>
+	/>
 	<record id="rje_tax_invoice" model="ir.actions.report.xml">
 		<field name="jasper_report">True</field>
 		<field name="jasper_output">pdf</field>
@@ -75,7 +75,7 @@
 		id="rje_receipt"
 		menu="True"
 		header="False"
-		/>
+	/>
 	<record id="rje_receipt" model="ir.actions.report.xml">
 		<field name="jasper_report">True</field>
 		<field name="jasper_output">pdf</field>
@@ -90,41 +90,41 @@
 		id="rje_billing"
 		menu="True"
 		header="False"
-		/>
+	/>
 	<record id="rje_billing" model="ir.actions.report.xml">
 		<field name="jasper_report">True</field>
 		<field name="jasper_output">pdf</field>
 	</record>
 
 	# Payment Voucher
-    <report string="Payment Voucher"
-        model="account.voucher"
-        auto="True"
-        name="rje.payment.voucher"
-        rml="rje_jrxml_reports/custom_reports/payment_voucher.jrxml"
-        id="rje_payment_voucher"
-        menu="True"
-        header="False"
-        />
-    <record id="rje_payment_voucher" model="ir.actions.report.xml">
-        <field name="jasper_report">True</field>
-        <field name="jasper_output">pdf</field>
-    </record>
+	<report string="Payment Voucher"
+		model="account.voucher"
+		auto="True"
+		name="rje.payment.voucher"
+		rml="rje_jrxml_reports/custom_reports/payment_voucher.jrxml"
+		id="rje_payment_voucher"
+		menu="True"
+		header="False"
+	/>
+	<record id="rje_payment_voucher" model="ir.actions.report.xml">
+		<field name="jasper_report">True</field>
+		<field name="jasper_output">pdf</field>
+	</record>
 
-		# Receipt Voucher
-			<report string="Receipt Voucher"
-					model="account_voucher"
-					auto="True"
-					name="rje.receipt.voucher"
-					rml="rje_jrxml_reports/custom_reports/receipt_voucher.jrxml"
-					id="rje_receipt_voucher"
-					menu="True"
-					header="False"
-					/>
-			<record id="rje_receipt_voucher" model="ir.actions.report.xml">
-					<field name="jasper_report">True</field>
-					<field name="jasper_output">pdf</field>
-			</record>
+	# Receipt Voucher
+	<report string="Receipt Voucher"
+		model="account.voucher"
+		auto="True"
+		name="rje.receipt.voucher"
+		rml="rje_jrxml_reports/custom_reports/receipt_voucher.jrxml"
+		id="rje_receipt_voucher"
+		menu="True"
+		header="False"
+	/>
+	<record id="rje_receipt_voucher" model="ir.actions.report.xml">
+		<field name="jasper_report">True</field>
+		<field name="jasper_output">pdf</field>
+	</record>
 
 </data>
 </openerp>

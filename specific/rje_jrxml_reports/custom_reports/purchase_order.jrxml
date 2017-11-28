@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="purchase_order" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="192"/>
+	<property name="ireport.y" value="624"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString language="xPath">
@@ -97,6 +97,9 @@
 	</field>
 	<field name="uop_name" class="java.lang.String">
 		<fieldDescription><![CDATA[order_line/product_id/uop_id/name]]></fieldDescription>
+	</field>
+	<field name="amount_in_word" class="java.lang.String">
+		<fieldDescription><![CDATA[amount_total_text_en]]></fieldDescription>
 	</field>
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount_total}==null?0:$F{amount_total}*100)/100).toString()]]></variableExpression>
@@ -690,12 +693,12 @@
 				</textElement>
 				<text><![CDATA[2.กรุณาเเนบใบสำเนาสั่งซือ (P.O.) พร้อมต้นฉบับ ใบกำกับภาษีเเละสำเนา 2 ฉบับ ทุกครั้งในการส่งสินค้า ]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="51" y="24" width="326" height="20"/>
-				<textElement>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="24" y="24" width="353" height="20"/>
+				<textElement textAlignment="Center">
 					<font size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA["(" + (new Scriptlet()).getAmtInWords((new BigDecimal($V{string_total}==""?0:$V{string_total})).setScale(2).toString(),"THB") + ")"]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{amount_in_word} + ")"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="20" y="58" width="506" height="30"/>
