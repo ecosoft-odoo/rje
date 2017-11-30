@@ -52,7 +52,7 @@ class AccountAssetLine(models.Model):
     line_date = fields.Date(string='Date', required=True)
     line_days = fields.Integer(
         string='Days',
-        readonly=True,
+        readonly=False,
     )
     move_id = fields.Many2one(
         comodel_name='account.move',
