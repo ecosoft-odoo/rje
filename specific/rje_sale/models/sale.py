@@ -7,24 +7,12 @@ class SaleOrder(models.Model):
 
     attention = fields.Char(
         string='Attention',
-        track_visibility='onchange',
-        readonly=True,
-        states={'draft': [('readonly', False)],
-                'sent': [('readonly', False)]},
     )
     preprint_number = fields.Char(
         string='Preprint Number',
-        track_visibility='onchange',
-        readonly=True,
-        states={'draft': [('readonly', False)],
-                'sent': [('readonly', False)]},
     )
     day_delivery_term = fields.Char(
         string='Day Delivery Term',
-        track_visibility='onchange',
-        readonly=True,
-        states={'draft': [('readonly', False)],
-                'sent': [('readonly', False)]},
     )
     drawing_number = fields.Char(
         string='Drwaing Number',
