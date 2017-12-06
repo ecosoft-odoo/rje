@@ -16,7 +16,7 @@ class AccountAsset(models.Model):
         string='Purchase Date',
         readonly=True,
         states={'draft': [('readonly', False)]},
-        required=True,
+        required=False,
         copy=False,
     )
     purchase_move_id = fields.Many2one(
