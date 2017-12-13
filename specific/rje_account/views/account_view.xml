@@ -11,6 +11,12 @@
               <field name="fiscal_position" position="after">
                   <field name="preprint_number"/>
               </field>
+              <button name="invoice_print" position="attributes">
+                  <attribute name="invisible">True</attribute>
+              </button>
+              <button name="action_invoice_sent" position="attributes">
+                  <attribute name="invisible">True</attribute>
+              </button>
           </field>
       </record>
 

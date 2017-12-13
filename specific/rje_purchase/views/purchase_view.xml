@@ -13,6 +13,12 @@
                 <field name="validator" position="after">
                     <field name="approved_employee_id"/>
                 </field>
+                <button name="wkf_send_rfq" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </button>
+                <button name="print_quotation" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </button>
             </field>
         </record>
 
