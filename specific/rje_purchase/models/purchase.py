@@ -7,10 +7,6 @@ class PurchaseOrder(models.Model):
 
     attention = fields.Char(
         string='Attention',
-        track_visibility='onchange',
-        readonly=True,
-        states={'draft': [('readonly', False)],
-                'sent': [('readonly', False)]},
     )
     approved_employee_id = fields.Many2one(
         'hr.employee',

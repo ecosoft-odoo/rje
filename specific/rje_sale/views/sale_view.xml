@@ -35,18 +35,39 @@
                 <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
                     <field name="drawing_number"/>
                 </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='tax_id']" position="after">
+                    <field name="amount_discount" context="{'by_amount_discount': True}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
+                    <field name="amount_discount" context="{'by_amount_discount': True}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='tax_id']" position="after">
+                    <field name="percent_discount" context="{'by_percent_discount': True}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
+                    <field name="percent_discount" context="{'by_percent_discount': True}"/>
+                </xpath>
                 <field name="user_id" position="after">
                     <field name="approved_employee_id"/>
                 </field>
 
-                <!--button invisible-->
+                <!--invisible-->
+                <xpath expr="//field[@name='order_line']/tree//field[@name='discount']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//label[@for='discount']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
                 <button name="action_quotation_send" states="draft" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </button>
                 <button name="action_quotation_send" states="sent,progress,manual" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </button>
-
                 <button name="print_quotation" states="draft" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </button>
@@ -58,11 +79,11 @@
                 <button name="action_view_invoice" position="attributes">
                     <attribute name="groups">account.group_account_user,account.group_account_manager,account.group_account_invoice</attribute>
                 </button>
-                -->
+
                 <button name="309" type="action" states="manual" position="attributes">
                     <attribute name="groups">account.group_account_user,account.group_account_manager,account.group_account_invoice</attribute>
                 </button>
-
+                -->
             </field>
         </record>
 

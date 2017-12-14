@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <template id="report_picking" inherit_id="stock.report_picking">
+      <xpath expr="//table[@class='table table-condensed'][2]/thead/tr/th[2]" position="after">
+        <th class="text-right"><strong>Quantity (UoP Receive)</strong></th>
+      </xpath>
+
+      <xpath expr="//table[@class='table table-condensed'][2]/tbody/tr/t/td[2]" position="after">
+        <td class="text-right"><span t-field="move.product_uop_qty_receive"/> <span t-field="move.product_uop"/></td>
+      </xpath>
+
+      <xpath expr="//table[@class='table table-condensed'][3]/thead/tr/th[2]" position="after">
+        <th class="text-right"><strong>Quantity (UoP Receive)</strong></th>
+      </xpath>
+
+      <xpath expr="//table[@class='table table-condensed'][3]/tbody/tr/td[2]" position="after">
+        <td class="text-right"><span t-field="pack_operation.linked_move_operation_ids.move_id.product_uop_qty_receive"/> <span t-field="pack_operation.linked_move_operation_ids.move_id.product_uop"/></td>
+      </xpath>
+    </template>
+
+  </data>
+</openerp>

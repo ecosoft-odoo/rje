@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api, _
 
+class StockMove(models.Model):
+    _inherit = 'stock.move'
 
-#class Stock(models.Model):
-#    _inherit = 'stock'
-
-    #attention = fields.Char(
-    #    string='Attention',
-    #    track_visibility='onchange',
-    #    readonly=True,
-    #    states={'draft': [('readonly', False)],
-    #            'sent': [('readonly', False)]},
-    #)
+    product_uop_qty_receive = fields.Float(
+        string='Quantity (UoP Receive)',
+    )
