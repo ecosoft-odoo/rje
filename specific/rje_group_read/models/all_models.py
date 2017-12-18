@@ -6,13 +6,17 @@ from openerp import models, fields, api, _
 def set_view_readonly(user, groups, view_type, res):
     readonly = True in [user.has_group(x) for x in groups]
     if readonly and view_type in ('tree', 'form'):
-        tag = view_type == 'tree' and "/tree" or "/form"
+        tag = view_type == 'tree' and "/tree" or "/form"  # Invisible CRUD
         doc = etree.XML(res['arch'])
         nodes = doc.xpath(tag)
         for node in nodes:
             node.set('create', 'false')
             node.set('edit', 'false')
             node.set('delete', 'false')
+        if view_type == 'form':  # Invisible all buttons
+            nodes = doc.xpath('/form/header/button')
+            for node in nodes:
+                node.set('modifiers', '{"invisible": true}')
         res['arch'] = etree.tostring(doc)
 
 
