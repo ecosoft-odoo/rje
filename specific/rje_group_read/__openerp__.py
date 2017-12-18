@@ -13,6 +13,7 @@
         'purchase',
         'account',
         'account_voucher',
+        'stock',
     ],
     'data': [
         'data/groups.xml',
