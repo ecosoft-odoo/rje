@@ -79,6 +79,7 @@ class AccountVoucher(models.Model):
         set_view_readonly(self.env.user, self._readonly_groups, view_type, res)
         return res
 
+      
 class StockMove(models.Model):
     _inherit = 'stock.picking'
     _readonly_groups = ['rje_group_read.group_stock_move_user_readonly']
