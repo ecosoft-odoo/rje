@@ -17,7 +17,6 @@
     ],
     'data': [
         'data/groups.xml',
-        # 'views/purchase_view.xml',
     ],
     'installable': True,
     'active': True,
