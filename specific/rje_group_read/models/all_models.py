@@ -78,3 +78,18 @@ class AccountVoucher(models.Model):
         # Set View Readonly
         set_view_readonly(self.env.user, self._readonly_groups, view_type, res)
         return res
+
+      
+class StockMove(models.Model):
+    _inherit = 'stock.picking'
+    _readonly_groups = ['rje_group_read.group_stock_move_user_readonly']
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type=False,
+                        toolbar=False, submenu=False):
+        res = super(StockMove, self).\
+            fields_view_get(view_id=view_id, view_type=view_type,
+                            toolbar=toolbar, submenu=submenu)
+        # Set View Readonly
+        set_view_readonly(self.env.user, self._readonly_groups, view_type, res)
+        return res

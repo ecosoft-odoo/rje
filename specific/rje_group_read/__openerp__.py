@@ -13,10 +13,10 @@
         'purchase',
         'account',
         'account_voucher',
+        'stock',
     ],
     'data': [
         'data/groups.xml',
-        # 'views/purchase_view.xml',
     ],
     'installable': True,
     'active': True,
