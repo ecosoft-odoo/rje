@@ -154,11 +154,11 @@ class AccountBilling(models.Model):
     def onchange_partner_id(self, company_id,
                             partner_id, currency_id, date):
         ctx = self._context.copy()
-        ctx.update(
-            {'billing_date_condition': ['|',
-                                        ('date_maturity', '=', False),
-                                        ('date_maturity', '<=', date)]}
-        )
+        # ctx.update(
+        #     {'billing_date_condition': ['|',
+        #                                 ('date_maturity', '=', False),
+        #                                 ('date_maturity', '<=', date)]}
+        # )
         if not currency_id:
             return {'value': {'line_cr_ids': []}}
         res = self.with_context(ctx).recompute_billing_lines(
