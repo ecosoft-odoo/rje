@@ -7,10 +7,6 @@ class AccountInvoice(models.Model):
 
     preprint_number = fields.Char(
         string='Preprint Number',
-        track_visibility='onchange',
-        readonly=True,
-        states={'draft': [('readonly', False)],
-                'sent': [('readonly', False)]},
     )
 
     def filter_print_report(self, res, reports):

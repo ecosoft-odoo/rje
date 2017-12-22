@@ -25,6 +25,7 @@
                 <field name="partner_id" position="after">
                     <field name="attention"/>
                     <field name="preprint_number"/>
+                    <field name="header_text"/>
                 </field>
                 <field name="client_order_ref" position="after">
                     <field name="day_delivery_term"/>
