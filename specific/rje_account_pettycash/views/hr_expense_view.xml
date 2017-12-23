@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <menuitem id="account_pettycash.menu_expense_pettycash"
+                  parent="account.menu_finance_bank_and_cash"
+                  sequence="30"/>
+    </data>
+</openerp>

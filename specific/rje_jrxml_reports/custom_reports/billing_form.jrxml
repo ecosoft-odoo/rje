@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billing_form" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="192"/>
+	<property name="ireport.y" value="0"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;line_cr_ids&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString language="xPath">
@@ -38,45 +38,45 @@
 	<background>
 		<band height="802" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="152" width="555" height="429"/>
+				<reportElement x="0" y="152" width="555" height="516"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="248" y="585" width="47" height="19"/>
+				<reportElement x="248" y="676" width="47" height="19"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[รวม]]></text>
 			</staticText>
 			<line>
-				<reportElement x="43" y="152" width="1" height="428"/>
+				<reportElement x="43" y="152" width="1" height="516"/>
 			</line>
 			<line>
-				<reportElement x="142" y="152" width="1" height="428"/>
+				<reportElement x="146" y="152" width="1" height="516"/>
 			</line>
 			<line>
-				<reportElement x="224" y="152" width="2" height="428"/>
+				<reportElement x="226" y="152" width="1" height="516"/>
 			</line>
 			<line>
-				<reportElement x="295" y="152" width="1" height="470"/>
+				<reportElement x="295" y="152" width="1" height="557"/>
 			</line>
 			<line>
-				<reportElement x="446" y="152" width="1" height="470"/>
+				<reportElement x="446" y="152" width="1" height="557"/>
 			</line>
 			<line>
 				<reportElement x="1" y="185" width="555" height="1"/>
 			</line>
 			<staticText>
-				<reportElement x="248" y="595" width="47" height="23"/>
+				<reportElement x="248" y="686" width="47" height="23"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Total]]></text>
 			</staticText>
 			<line>
-				<reportElement x="1" y="622" width="446" height="1"/>
+				<reportElement x="0" y="709" width="446" height="1"/>
 			</line>
 			<rectangle>
-				<reportElement x="0" y="581" width="247" height="41" backcolor="#D6D4D2"/>
+				<reportElement x="0" y="668" width="247" height="41" backcolor="#D6D4D2"/>
 			</rectangle>
 		</band>
 	</background>
@@ -105,14 +105,14 @@
 				<textElement>
 					<font fontName="Garuda" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[416 Moo2, Bangplee-tamrue Road, Tambol Phrekasamai, Amphur Muang, Samutprakarn 10280, Thailand]]></text>
+				<text><![CDATA[416 Moo2, Bangplee-Tamrue Road, Tambol Phrekasamai, Amphur Muang, Samutprakarn 10280, Thailand]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="43" y="20" width="203" height="30"/>
+				<reportElement x="43" y="23" width="248" height="30"/>
 				<textElement>
 					<font fontName="Garuda" size="11" isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[Raja Engineering Machine LTD., Part.]]></text>
+				<text><![CDATA[RAJA ENGINEERING MACHINE LTD., PART.]]></text>
 			</staticText>
 			<line>
 				<reportElement x="43" y="43" width="332" height="1"/>
@@ -212,42 +212,42 @@
 				<text><![CDATA[Item]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="48" y="0" width="89" height="17"/>
+				<reportElement x="48" y="0" width="97" height="17"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[เล่มที่]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="48" y="13" width="89" height="17"/>
+				<reportElement x="48" y="13" width="97" height="17"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Vol. No.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="146" y="0" width="67" height="17"/>
+				<reportElement x="149" y="0" width="75" height="17"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[เลขที่]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="146" y="13" width="67" height="17"/>
+				<reportElement x="149" y="13" width="75" height="17"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[No.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="218" y="0" width="80" height="17"/>
+				<reportElement x="228" y="0" width="64" height="17"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[ลงวันที่]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="218" y="13" width="80" height="17"/>
+				<reportElement x="228" y="13" width="64" height="17"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -268,14 +268,14 @@
 				<text><![CDATA[Remark]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="302" y="0" width="140" height="17"/>
+				<reportElement x="298" y="0" width="144" height="17"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[จำนวนเงิน]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="302" y="13" width="140" height="17"/>
+				<reportElement x="298" y="13" width="144" height="17"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -293,28 +293,28 @@
 				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;#,##0.00-" isBlankWhenNull="false">
-				<reportElement x="302" y="2" width="140" height="18"/>
+				<reportElement x="298" y="2" width="144" height="18"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_original} == null ? 0:$F{amount_original}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="48" y="2" width="89" height="18"/>
+				<reportElement x="48" y="2" width="97" height="18"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{move_line_id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="146" y="2" width="67" height="18"/>
+				<reportElement x="149" y="2" width="75" height="18"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{reference}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
-				<reportElement x="218" y="2" width="80" height="18"/>
+				<reportElement x="228" y="2" width="64" height="18"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -323,191 +323,130 @@
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="213">
+		<band height="130">
 			<staticText>
-				<reportElement x="332" y="170" width="55" height="20"/>
-				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Signature]]></text>
-			</staticText>
-			<line>
-				<reportElement x="47" y="169" width="151" height="1"/>
-			</line>
-			<staticText>
-				<reportElement x="198" y="170" width="53" height="20"/>
-				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Volume]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="5" y="170" width="53" height="20"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Quantity]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="505" y="170" width="49" height="20"/>
+				<reportElement x="176" y="79" width="49" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Receiver]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="198" y="156" width="49" height="20"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[ฉบับ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="5" y="156" width="53" height="18"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[จำนวน]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="506" y="156" width="49" height="18"/>
+				<reportElement x="3" y="79" width="55" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[ผู้รับบิล]]></text>
-			</staticText>
-			<rectangle>
-				<reportElement x="294" y="79" width="260" height="47"/>
-			</rectangle>
-			<line>
-				<reportElement x="370" y="101" width="169" height="1"/>
-			</line>
-			<line>
-				<reportElement x="376" y="169" width="134" height="1"/>
-			</line>
-			<staticText>
-				<reportElement x="332" y="156" width="55" height="18"/>
-				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[ลงชื่อ]]></text>
+				<text><![CDATA[Signature]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="297" y="98" width="64" height="25"/>
+				<reportElement x="307" y="79" width="64" height="25"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Received Date]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="297" y="84" width="64" height="18"/>
+				<reportElement x="175" y="65" width="49" height="18"/>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ผู้รับบิล]]></text>
+			</staticText>
+			<line>
+				<reportElement x="381" y="82" width="169" height="1"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="307" y="65" width="64" height="18"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[วันที่รับเงิน]]></text>
+				<text><![CDATA[วันที่นัดรับเช็ค]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="65" width="55" height="18"/>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ลงชื่อ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="47" y="78" width="134" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="21" y="103" width="184" height="20"/>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[___________/___________/___________]]></text>
 			</staticText>
 		</band>
 	</pageFooter>
 	<lastPageFooter>
-		<band height="213">
-			<rectangle>
-				<reportElement x="295" y="62" width="260" height="47"/>
-			</rectangle>
+		<band height="130">
 			<staticText>
-				<reportElement mode="Transparent" x="297" y="67" width="64" height="18"/>
+				<reportElement mode="Transparent" x="307" y="66" width="74" height="20"/>
 				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					<font fontName="Garuda" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
 				</textElement>
-				<text><![CDATA[วันที่รับเงิน]]></text>
+				<text><![CDATA[วันที่นัดรับเช็ค]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="297" y="81" width="64" height="25"/>
+				<reportElement x="307" y="80" width="74" height="25"/>
 				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font fontName="Garuda" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Received Date]]></text>
 			</staticText>
 			<line>
-				<reportElement x="371" y="84" width="169" height="1"/>
+				<reportElement x="381" y="83" width="169" height="1"/>
 			</line>
 			<staticText>
-				<reportElement x="199" y="139" width="49" height="20"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[ฉบับ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="199" y="153" width="53" height="20"/>
-				<textElement textAlignment="Center">
-					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Volume]]></text>
-			</staticText>
-			<line>
-				<reportElement x="48" y="152" width="151" height="1"/>
-			</line>
-			<staticText>
-				<reportElement x="333" y="139" width="55" height="18"/>
+				<reportElement x="3" y="66" width="55" height="18"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[ลงชื่อ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="333" y="153" width="55" height="20"/>
+				<reportElement x="3" y="80" width="55" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Signature]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="506" y="153" width="49" height="20"/>
+				<reportElement x="176" y="80" width="49" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[Receiver]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="507" y="139" width="49" height="18"/>
+				<reportElement x="175" y="66" width="49" height="18"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[ผู้รับบิล]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="351" y="177" width="184" height="20"/>
+				<reportElement x="21" y="104" width="184" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[___________/___________/___________]]></text>
 			</staticText>
 			<line>
-				<reportElement x="377" y="152" width="134" height="1"/>
+				<reportElement x="47" y="79" width="134" height="1"/>
 			</line>
-			<staticText>
-				<reportElement x="6" y="139" width="53" height="18"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[จำนวน]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="6" y="153" width="53" height="20"/>
-				<textElement textAlignment="Center">
-					<font fontName="Garuda" size="9" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[Quantity]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="7" y="5" width="232" height="20" backcolor="#FFFFFF"/>
+				<reportElement x="5" y="10" width="232" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA["(" + (new Scriptlet()).getAmtInWords((new BigDecimal($V{string_total}==""?0:$V{string_total})).setScale(2).toString(),"THB") + ")"]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;#,##0.00-">
-				<reportElement x="302" y="5" width="140" height="20"/>
+				<reportElement x="300" y="10" width="140" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
