@@ -2,6 +2,7 @@
 <openerp>
     <data>
         <menuitem id="account_pettycash.menu_expense_pettycash"
+                  name="Petty Cash"
                   parent="account.menu_finance_bank_and_cash"
                   sequence="30"/>
     </data>
