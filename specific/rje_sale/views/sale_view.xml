@@ -76,15 +76,6 @@
                     <attribute name="invisible">True</attribute>
                 </button>
 
-                <!--
-                <button name="action_view_invoice" position="attributes">
-                    <attribute name="groups">account.group_account_user,account.group_account_manager,account.group_account_invoice</attribute>
-                </button>
-
-                <button name="309" type="action" states="manual" position="attributes">
-                    <attribute name="groups">account.group_account_user,account.group_account_manager,account.group_account_invoice</attribute>
-                </button>
-                -->
             </field>
         </record>
 

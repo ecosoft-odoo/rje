@@ -34,36 +34,6 @@ class SaleOrder(models.Model):
         string='Header Text',
     )
 
-
-    # def filter_print_report(self, res, reports):
-    #     action = []
-    #     if res.get('toolbar', False) and \
-    #             res.get('toolbar').get('print', False):
-    #         for act in res.get('toolbar').get('print'):
-    #             if act.get('name') in reports:
-    #                 action.append(act)
-    #         res['toolbar']['print'] = action
-    #     return res
-    #
-    # @api.model
-    # def fields_view_get(self, view_id=None, view_type='form',
-    #         toolbar=False,submenu=False):
-    #     res = super(SaleOrder, self).fields_view_get(
-    #         view_id, view_type, toolbar=toolbar, submenu=submenu)
-    #     # Quotation
-    #     if self._context.get('type', False) == 'quotation':
-    #         reports = [
-    #             u'Quotation',
-    #         ]
-    #         self.filter_print_report(res, reports)
-    #     # Sales Order
-    #     elif self._context.get('type', False) == 'sales_order':
-    #         reports = [
-    #             u'Sales Order',
-    #         ]
-    #         self.filter_print_report(res, reports)
-    #     return res
-
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
