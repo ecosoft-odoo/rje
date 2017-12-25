@@ -30,6 +30,9 @@ class SaleOrder(models.Model):
         'hr.employee',
         string='Approved by',
     )
+    header_text = fields.Char(
+        string='Header Text',
+    )
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'

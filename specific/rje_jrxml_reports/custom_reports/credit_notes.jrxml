@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="credit_notes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="473"/>
+	<property name="ireport.x" value="6"/>
+	<property name="ireport.y" value="41"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;invoice_line&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString language="xPath">
@@ -23,8 +23,11 @@
 	<field name="zip" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/zip]]></fieldDescription>
 	</field>
-	<field name="tax_id_partner" class="java.lang.String">
+	<field name="tax_id" class="java.lang.String">
 		<fieldDescription><![CDATA[partner_id/vat]]></fieldDescription>
+	</field>
+	<field name="tax_branch_id" class="java.lang.String">
+		<fieldDescription><![CDATA[partner_id/taxbranch]]></fieldDescription>
 	</field>
 	<field name="refund_doc" class="java.lang.String">
 		<fieldDescription><![CDATA[number]]></fieldDescription>
@@ -33,7 +36,7 @@
 		<fieldDescription><![CDATA[date_invoice]]></fieldDescription>
 	</field>
 	<field name="origin_invoice" class="java.lang.String">
-		<fieldDescription><![CDATA[origin_invoice_id/number]]></fieldDescription>
+		<fieldDescription><![CDATA[origin_invoice_id/preprint_number]]></fieldDescription>
 	</field>
 	<field name="origin_invoice_date" class="java.util.Date">
 		<fieldDescription><![CDATA[origin_invoice_id/date_invoice]]></fieldDescription>
@@ -247,14 +250,14 @@
 				<textElement verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{tax_id_partner}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tax_id} + "/" + $F{tax_branch_id}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="40" y="45" width="486" height="20"/>
 				<textElement>
 					<font fontName="Garuda" size="8" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[Head Office : 416 Moo2, Bangplee-tamrue Road, Tambol Phrekasamai, Amphur Muang, Samutprakarn 10280, Thailand]]></text>
+				<text><![CDATA[Head Office : 416 Moo2, Bangplee-Tamrue Road, Tambol Phrekasamai, Amphur Muang, Samutprakarn 10280, Thailand]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="40" y="56" width="484" height="20"/>

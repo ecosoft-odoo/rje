@@ -10,13 +10,28 @@
 	<report string="Quotation"
 		model="sale.order"
 		auto="True"
-		name="rje.sale.order.form"
+		name="rje.quotation"
 		rml="rje_jrxml_reports/custom_reports/quotation.jrxml"
-		id="rje_sale_order_quotation"
+		id="rje_quotation"
 		menu="True"
 		header="False"
 	/>
-	<record id="rje_sale_order_quotation" model="ir.actions.report.xml">
+	<record id="rje_quotation" model="ir.actions.report.xml">
+		<field name="jasper_report">True</field>
+		<field name="jasper_output">pdf</field>
+	</record>
+
+	# Sales Order
+	<report string="Sales Order"
+		model="sale.order"
+		auto="True"
+		name="rje.sale.order"
+		rml="rje_jrxml_reports/custom_reports/sales_order.jrxml"
+		id="rje_sale_order"
+		menu="True"
+		header="False"
+	/>
+	<record id="rje_sale_order" model="ir.actions.report.xml">
 		<field name="jasper_report">True</field>
 		<field name="jasper_output">pdf</field>
 	</record>
