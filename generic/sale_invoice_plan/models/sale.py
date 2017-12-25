@@ -4,6 +4,7 @@ from openerp import models, fields, api, _
 from openerp.exceptions import except_orm
 from openerp.tools.float_utils import float_round as round
 from openerp import workflow
+from openerp.tools import float_compare
 import time
 import logging
 
@@ -140,7 +141,7 @@ class sale_order(models.Model):
                 for line in invoice_lines:
                     total_amount += line.invoice_amount
                     # Validate percent
-                    if round(line.invoice_percent/100 * subtotal, prec) != \
+                    if round(line.invoice_percent / 100 * subtotal, prec) != \
                             round(line.invoice_amount, prec):
                         raise except_orm(
                             _('Invoice Plan Percent Mismatch!'),
@@ -149,8 +150,10 @@ class sale_order(models.Model):
                 if round(total_amount, prec) != round(subtotal, prec):
                     raise except_orm(
                         _('Invoice Plan Amount Mismatch!'),
-                        _("%s, plan amount %d not equal to line amount %d!")
-                        % (order_line.name, total_amount, subtotal))
+                        _("%s, plan amount %s not equal to line amount %s!")
+                        % (order_line.name,
+                           '{:,.2f}'.format(total_amount),
+                           '{:,.2f}'.format(subtotal)))
         return True
 
     @api.multi
@@ -173,29 +176,34 @@ class sale_order(models.Model):
                     invoice.id, 'invoice_cancel', self._cr)
         return True
 
+    @api.model
+    def _prepare_deposit_invoice_line(self, name, order, amount):
+        company = self.env.user.company_id
+        account_id = company.account_deposit_customer.id
+        return {
+            'name': name,
+            'origin': order.name,
+            'user_id': order.user_id.id,
+            'account_id': account_id,
+            'price_unit': amount,
+            'quantity': 1.0,
+            'discount': False,
+            'uos_id': False,
+            'product_id': False,
+            'invoice_line_tax_id': [
+                (6, 0, [x.id for x in order.order_line[0].tax_id])],
+            'account_analytic_id': order.project_id.id or False,
+        }
+
     @api.multi
     def _create_deposit_invoice(self, percent, amount, date_invoice=False):
         for order in self:
             if amount:
                 advance_label = 'Advance'
-                company = self.env.user.company_id
-                account_id = company.account_deposit_customer.id
                 name = _("%s of %s %%") % (advance_label, percent)
                 # create the invoice
-                inv_line_values = {
-                    'name': name,
-                    'origin': order.name,
-                    'user_id': order.user_id.id,
-                    'account_id': account_id,
-                    'price_unit': amount,
-                    'quantity': 1.0,
-                    'discount': False,
-                    'uos_id': False,
-                    'product_id': False,
-                    'invoice_line_tax_id': [
-                        (6, 0, [x.id for x in order.order_line[0].tax_id])],
-                    'account_analytic_id': order.project_id.id or False,
-                }
+                inv_line_values = \
+                    self._prepare_deposit_invoice_line(name, order, amount)
                 inv_values = self._prepare_invoice(order, inv_line_values)
                 inv_values.update({'is_advance': True,
                                    'date_invoice': date_invoice})
@@ -231,6 +239,7 @@ class sale_order(models.Model):
         invoice_ids = []
         # Case use_invoice_plan, create multiple invoice by installment
         for order in self:
+            first_time_invoice_plan = not order.invoice_ids and True or False
             if order.use_invoice_plan:
                 plan_obj = self.env['sale.invoice.plan']
                 installments = list(set([plan.installment
@@ -271,12 +280,27 @@ class sale_order(models.Model):
                 inv_id = super(sale_order, order).action_invoice_create(
                     grouped=grouped, states=states, date_invoice=date_invoice)
                 invoice_ids.append(inv_id)
-            order._action_invoice_create_hook(invoice_ids)  # Special Hook
+            order.with_context(first_time=first_time_invoice_plan).\
+                _action_invoice_create_hook(invoice_ids)  # Special Hook
         return inv_id
 
     @api.model
     def _action_invoice_create_hook(self, invoice_ids):
-        # For Hook
+        # Hook
+        # Check total amount PO must equal to Invoice
+        if self._context.get('first_time', False) and len(invoice_ids) > 0:
+            invoices = self.env['account.invoice'].browse(invoice_ids)
+            prec = self.env['decimal.precision'].precision_get('Account')
+            invoice_untaxed = sum(invoices.mapped('amount_untaxed'))
+            if float_compare(invoice_untaxed, self.amount_untaxed,
+                             precision_digits=prec) != 0:
+                raise except_orm(
+                    _('Amount mismatch!'),
+                    _('Total invoice amount, %s, not equal to purchase '
+                      'order amount, %s.\nThis may be caused by quantity '
+                      'rounding from invoice plan to invoice line.') %
+                    ('{:,.2f}'.format(invoice_untaxed),
+                     '{:,.2f}'.format(self.amount_untaxed)))
         return
 
     @api.model
@@ -347,7 +371,8 @@ class sale_order_line(models.Model):
     @api.model
     def _prepare_order_line_invoice_line(self, line, account_id=False):
         # Call super
-        res = super(sale_order_line, self).\
+        res = super(sale_order_line,
+                    self.with_context(force_ignore_line_percent=True)).\
             _prepare_order_line_invoice_line(line, account_id)
         # For invoice plan
         invoice_plan_percent = self._context.get('invoice_plan_percent', False)
