@@ -8,20 +8,16 @@ class AccountAsset(models.Model):
 
     number = fields.Char(
         string='Asset Code',
-        readonly=False,
-        states={'close': [('readonly', False)]},
         copy=False,
     )
     purchase_date = fields.Date(
         string='Purchase Date',
-        readonly=True,
-        states={'draft': [('readonly', False)]},
         required=False,
         copy=False,
     )
     purchase_move_id = fields.Many2one(
         'account.move',
-        string='Purchase move',
+        string='Purchase Move',
         readonly=True,
     )
 
