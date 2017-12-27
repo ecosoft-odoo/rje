@@ -12,7 +12,6 @@
     "depends": [
         'account_asset_management',
         'account_auto_fy_sequence',
-        'account_operating_unit',
     ],
     "data": [
         'views/product_category_view.xml',
