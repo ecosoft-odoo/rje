@@ -40,9 +40,9 @@ class SaleOrderLine(models.Model):
     drawing_number = fields.Char(
         string='Drawing Number',
     )
-    discount = fields.Float(
-        digits=(16,20),
-    )
+    # discount = fields.Float(
+    #     digits=(16,20),
+    # )
     amount_discount = fields.Float(
         string='Discount (Amt.)',
     )
