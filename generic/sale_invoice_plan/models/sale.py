@@ -280,8 +280,9 @@ class sale_order(models.Model):
                 inv_id = super(sale_order, order).action_invoice_create(
                     grouped=grouped, states=states, date_invoice=date_invoice)
                 invoice_ids.append(inv_id)
-            order.with_context(first_time=first_time_invoice_plan).\
-                _action_invoice_create_hook(invoice_ids)  # Special Hook
+            # kittiu: for RJE only
+            # order.with_context(first_time=first_time_invoice_plan).\
+            #     _action_invoice_create_hook(invoice_ids)  # Special Hook
         return inv_id
 
     @api.model
