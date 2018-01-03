@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.366026910730141"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="96"/>
+	<property name="ireport.y" value="624"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,1670,2356"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
@@ -146,13 +146,6 @@
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{day_delivery_term}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="468" y="29" width="82" height="15"/>
-				<textElement textAlignment="Center">
-					<font size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{quotation_number}]]></textFieldExpression>
-			</textField>
 			<textField pattern="###0.00" isBlankWhenNull="false">
 				<reportElement x="494" y="226" width="55" height="20"/>
 				<textElement>
@@ -246,7 +239,15 @@
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="280" splitType="Stretch"/>
+		<band height="280" splitType="Stretch">
+			<textField>
+				<reportElement x="431" y="264" width="82" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{quotation_number}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<lastPageFooter>
 		<band height="300">
@@ -322,6 +323,13 @@
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{approved}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="284" width="82" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{quotation_number}]]></textFieldExpression>
 			</textField>
 		</band>
 	</lastPageFooter>
