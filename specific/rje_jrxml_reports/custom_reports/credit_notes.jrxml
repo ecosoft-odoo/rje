@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="credit_notes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="13"/>
+	<property name="ireport.y" value="384"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;invoice_line&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString language="xPath">
@@ -336,7 +336,7 @@
 				</textElement>
 				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isStretchWithOverflow="true">
 				<reportElement x="49" y="2" width="250" height="18"/>
 				<textElement>
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
@@ -383,7 +383,7 @@
 				<text><![CDATA[รวมจำนวนเงินที่ลดหนี้]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="345" y="146" width="55" height="18"/>
+				<reportElement x="345" y="213" width="55" height="18"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -394,7 +394,7 @@
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Garuda" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[รวมมูลค่าสินค่าที่ถูกต้อง]]></text>
+				<text><![CDATA[รวมมูลค่าสินค้าที่ถูกต้อง]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="342" y="73" width="135" height="21"/>
@@ -425,7 +425,7 @@
 				<text><![CDATA[มูลค่าสินค้าตามใบกำกับภาษีเดิม]]></text>
 			</staticText>
 			<line>
-				<reportElement x="389" y="155" width="134" height="1"/>
+				<reportElement x="389" y="222" width="134" height="1"/>
 				<graphicElement>
 					<pen lineStyle="Dotted"/>
 				</graphicElement>
@@ -435,23 +435,23 @@
 	<lastPageFooter>
 		<band height="237">
 			<rectangle>
-				<reportElement mode="Transparent" x="85" y="88" width="275" height="21"/>
+				<reportElement mode="Transparent" x="26" y="81" width="277" height="38"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="356" y="143" width="55" height="18"/>
+				<reportElement x="356" y="206" width="55" height="18"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<text><![CDATA[ผู้อนุมัติ]]></text>
 			</staticText>
 			<line>
-				<reportElement x="402" y="153" width="151" height="1"/>
+				<reportElement x="402" y="216" width="151" height="1"/>
 				<graphicElement>
 					<pen lineStyle="Dotted"/>
 				</graphicElement>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="88" y="89" width="270" height="20" backcolor="#FFFFFF"/>
+				<reportElement x="29" y="81" width="272" height="38" backcolor="#FFFFFF"/>
 				<textElement verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -476,7 +476,7 @@
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Garuda" size="10" isBold="false" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<text><![CDATA[รวมมูลค่าสินค่าที่ถูกต้อง]]></text>
+				<text><![CDATA[รวมมูลค่าสินค้าที่ถูกต้อง]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="343" y="46" width="135" height="21"/>
@@ -500,7 +500,7 @@
 				<text><![CDATA[รวมจำนวนเงินที่ลดหนี้]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="57" y="90" width="27" height="19"/>
+				<reportElement x="-1" y="90" width="27" height="19"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -541,7 +541,7 @@
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{origin_amount_total}-$F{amount_total}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isStretchWithOverflow="true">
 				<reportElement x="94" y="6" width="234" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>

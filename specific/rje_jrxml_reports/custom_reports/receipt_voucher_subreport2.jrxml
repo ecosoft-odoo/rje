@@ -13,9 +13,6 @@
 	<field name="amount" class="java.lang.Number">
 		<fieldDescription><![CDATA[multiple_reconcile_ids/amount]]></fieldDescription>
 	</field>
-	<field name="amount1" class="java.lang.Number">
-		<fieldDescription><![CDATA[amount]]></fieldDescription>
-	</field>
 	<detail>
 		<band height="22">
 			<printWhenExpression><![CDATA[$F{amount}]]></printWhenExpression>
@@ -27,7 +24,7 @@
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="124" y="0" width="320" height="22"/>
+				<reportElement x="125" y="0" width="320" height="22"/>
 				<textElement textAlignment="Right">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -35,22 +32,4 @@
 			</textField>
 		</band>
 	</detail>
-	<lastPageFooter>
-		<band height="22">
-			<textField pattern="#,##0.00;(#,##0.00)">
-				<reportElement x="444" y="0" width="100" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount1}==null?0:$F{amount1}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="341" y="0" width="103" height="22"/>
-				<textElement textAlignment="Right">
-					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<text><![CDATA[ยอดรับชำระสุทธิ]]></text>
-			</staticText>
-		</band>
-	</lastPageFooter>
 </jasperReport>
