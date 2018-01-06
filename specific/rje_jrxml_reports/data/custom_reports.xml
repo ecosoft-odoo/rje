@@ -66,17 +66,32 @@
 		<field name="jasper_output">pdf</field>
 	</record>
 
-	# Tax Invoice
-	<report string="Invoice/Tax Invoice"
+	# Tax Invoice 7%
+	<report string="Invoice/Tax Invoice (Tax 7%)"
 		model="account.invoice"
 		auto="True"
-		name="rje.tax"
-		rml="rje_jrxml_reports/custom_reports/tax_invoice.jrxml"
-		id="rje_tax_invoice"
+		name="rje.tax7"
+		rml="rje_jrxml_reports/custom_reports/tax_invoice7.jrxml"
+		id="rje_tax_invoice7"
 		menu="True"
 		header="False"
 	/>
-	<record id="rje_tax_invoice" model="ir.actions.report.xml">
+	<record id="rje_tax_invoice7" model="ir.actions.report.xml">
+		<field name="jasper_report">True</field>
+		<field name="jasper_output">pdf</field>
+	</record>
+
+	# Tax Invoice 0%
+	<report string="Invoice/Tax Invoice (Tax 0%)"
+		model="account.invoice"
+		auto="True"
+		name="rje.tax0"
+		rml="rje_jrxml_reports/custom_reports/tax_invoice0.jrxml"
+		id="rje_tax_invoice0"
+		menu="True"
+		header="False"
+	/>
+	<record id="rje_tax_invoice0" model="ir.actions.report.xml">
 		<field name="jasper_report">True</field>
 		<field name="jasper_output">pdf</field>
 	</record>
