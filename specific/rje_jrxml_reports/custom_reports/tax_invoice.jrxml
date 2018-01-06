@@ -76,6 +76,9 @@
 	<field name="amount_in_word" class="java.lang.String">
 		<fieldDescription><![CDATA[amount_total_text_en]]></fieldDescription>
 	</field>
+	<field name="comment" class="java.lang.String">
+		<fieldDescription><![CDATA[comment]]></fieldDescription>
+	</field>
 	<variable name="variable1" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount_total}*100)/100).toString()]]></variableExpression>
 	</variable>
@@ -251,6 +254,13 @@ $F{state_id} + " " + $F{zip} + " " + $F{country_id}]]></textFieldExpression>
 				</textElement>
 				<text><![CDATA[7%]]></text>
 			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="54" y="0" width="261" height="20"/>
+				<textElement>
+					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{comment}]]></textFieldExpression>
+			</textField>
 		</band>
 	</lastPageFooter>
 </jasperReport>
