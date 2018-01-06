@@ -29,7 +29,8 @@ class AccountInvoice(models.Model):
            self._context.get('type', False) == 'out_invoice' and\
            self._context.get('journal_type', False) == 'sale':
             reports = [
-                u'Invoice/Tax Invoice',
+                u'Invoice/Tax Invoice (Tax 7%)',
+                u'Invoice/Tax Invoice (Tax 0%)',
             ]
             self.filter_print_report(res, reports)
         # Customer Refund
