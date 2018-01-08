@@ -10,6 +10,9 @@
                 <field name="date_order" position="after">
                     <field name="attention"/>
                 </field>
+                <field name="fiscal_position" position="after">
+                    <field name="requested_employee_id"/>
+                </field>
                 <field name="validator" position="after">
                     <field name="approved_employee_id"/>
                 </field>

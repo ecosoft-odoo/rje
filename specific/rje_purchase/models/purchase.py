@@ -12,6 +12,10 @@ class PurchaseOrder(models.Model):
         'hr.employee',
         string='Approved by',
     )
+    requested_employee_id = fields.Many2one(
+        'hr.employee',
+        string='Requested by',
+    )
     shipment_count = fields.Integer(
         string='Incoming Shipments',
         compute='_compute_shipment_count',
