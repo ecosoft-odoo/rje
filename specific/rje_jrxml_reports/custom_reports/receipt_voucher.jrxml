@@ -338,35 +338,35 @@
 				<rectangle>
 					<reportElement x="3" y="24" width="549" height="62"/>
 				</rectangle>
-				<textField>
+				<textField isStretchWithOverflow="true">
 					<reportElement x="3" y="61" width="100" height="20"/>
 					<textElement verticalAlignment="Middle">
 						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{bank_cheque} == "" || $F{bank_cheque_branch}== ""? $F{bank_cheque} + $F{bank_cheque_branch} : $F{bank_cheque} + "/" + $F{bank_cheque_branch}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField isStretchWithOverflow="true">
 					<reportElement x="449" y="61" width="100" height="20"/>
 					<textElement verticalAlignment="Middle">
 						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{bank_account}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField isStretchWithOverflow="true">
 					<reportElement x="108" y="61" width="125" height="20"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{cheque_no}]]></textFieldExpression>
 				</textField>
-				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
 					<reportElement x="240" y="61" width="60" height="20"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 					</textElement>
 					<textFieldExpression class="java.util.Date"><![CDATA[$F{cheque_date}]]></textFieldExpression>
 				</textField>
-				<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="true">
 					<reportElement x="306" y="61" width="65" height="20"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
@@ -727,21 +727,21 @@
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_original}==null?0:$F{amount_original}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)">
 				<reportElement x="278" y="1" width="68" height="20"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_unreconciled}==null?0:$F{type}=='dr'?$F{amount_unreconciled}*-1:$F{amount_unreconciled}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)">
 				<reportElement x="418" y="1" width="69" height="20"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_allocation}==null?0:$F{type}=='dr'?$F{amount_allocation}*-1:$F{amount_allocation}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)">
 				<reportElement x="489" y="1" width="63" height="20"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
@@ -755,19 +755,19 @@
 				</textElement>
 				<textFieldExpression class="java.util.Date"><![CDATA[$F{invoice_date}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
 				<reportElement x="354" y="1" width="62" height="20"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$V{amount_paid}==null?0:$F{type}=='dr'?$V{amount_paid}*-1:$V{amount_paid}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)" isBlankWhenNull="false">
 				<reportElement x="204" y="1" width="70" height="20"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_original}==null?0:$F{type}=='dr'?$F{amount_original}*-1:$F{amount_original}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isStretchWithOverflow="true">
 				<reportElement x="100" y="1" width="100" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
