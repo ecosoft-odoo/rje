@@ -387,13 +387,6 @@ where wht_period_id = $P{wht_period_id} and income_tax_form = $P{income_tax_form
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{wht_sequence_display}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="344" y="28" width="100" height="20"/>
-				<textElement>
-					<font fontName="SansSerif" size="8" pdfFontName="Garuda.ttf"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{number}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="479" y="16" width="100" height="29">
 					<printWhenExpression><![CDATA[$F{state} == "cancel"]]></printWhenExpression>
 				</reportElement>
@@ -425,28 +418,21 @@ where wht_period_id = $P{wht_period_id} and income_tax_form = $P{income_tax_form
 	<pageFooter>
 		<band height="145" splitType="Stretch">
 			<textField>
-				<reportElement x="527" y="21" width="198" height="35"/>
+				<reportElement x="527" y="37" width="198" height="35"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{print_name}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA["WIRAT SIRIPORNPRASARN"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="529" y="53" width="206" height="35"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{print_position}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA["General manager"]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMMM" isBlankWhenNull="true">
 				<reportElement x="560" y="79" width="136" height="25"/>
-				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
-					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$V{day}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd" isBlankWhenNull="true">
-				<reportElement x="528" y="80" width="74" height="25"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>

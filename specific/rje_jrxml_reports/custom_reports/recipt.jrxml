@@ -61,6 +61,7 @@
 	<field name="reference" class="java.lang.String">
 		<fieldDescription><![CDATA[line_ids/move_line_id/name]]></fieldDescription>
 	</field>
+	<sortField name="invoice_no"/>
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount}==null?0:$F{amount}*100)/100).toString()]]></variableExpression>
 	</variable>
