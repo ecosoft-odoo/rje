@@ -371,13 +371,6 @@ select id from res_company limit 1;]]>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$P{type_6_base}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="368" y="41" width="208" height="28"/>
-				<textElement verticalAlignment="Bottom" lineSpacing="Single">
-					<font fontName="Monospaced" size="18" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{voucher_number}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="78" y="191" width="208" height="35"/>
 				<textElement verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="Monospaced" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H"/>
