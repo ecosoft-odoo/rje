@@ -72,6 +72,9 @@ class AccountTaxReport(models.Model):
     amount = fields.Float(
         string='Tax',
     )
+    number = fields.Char(
+        string='Number',
+    )
 
     def _select(self):
         res = """
@@ -93,10 +96,7 @@ class AccountTaxReport(models.Model):
                 else base_company end as base,
             case when cancel is true then 0.0
                 else amount_company end as amount,
-            case when atd.invoice_tax_id is not null then
-                (select ai.preprint_number
-                 from account_invoice ai
-                 where ai.number = atd.invoice_number)
+            case when atd.invoice_tax_id is not null then ai.preprint_number
                 else atd.invoice_number end as number
         """
         return res
@@ -110,6 +110,8 @@ class AccountTaxReport(models.Model):
             left outer join res_partner_title rpt on rp.title = rpt.id
             left outer join account_period ap on atd.period_id = ap.id
             left outer join account_move am on am.id = atd.ref_move_id
+            left outer join account_invoice ai on
+                ai.number = atd.invoice_number
             where report_period_id is not null
             order by year, month, tax_sequence
         )""" % (self._table, self._select(), )
