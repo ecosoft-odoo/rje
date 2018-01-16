@@ -300,7 +300,7 @@ order by invoice_date]]>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{advance_sequence} == true ?
 $F{tax_sequence_display} :
-$V{COLUMN_COUNT}]]></textFieldExpression>
+$V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement style="table2" stretchType="RelativeToTallestObject" x="47" y="0" width="67" height="15"/>
