@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quotation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.24184264611831"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="816"/>
+	<property name="ireport.y" value="720"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,1670,2356"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
@@ -240,8 +240,8 @@
 	</detail>
 	<pageFooter>
 		<band height="280" splitType="Stretch">
-			<textField>
-				<reportElement x="435" y="264" width="82" height="15"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="402" y="264" width="82" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font size="9" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -324,8 +324,8 @@
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{approved}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="435" y="265" width="82" height="15"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="402" y="265" width="82" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font size="9" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
