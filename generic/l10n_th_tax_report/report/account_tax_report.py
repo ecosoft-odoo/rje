@@ -83,7 +83,7 @@ class AccountTaxReport(models.Model):
             to_char(ap.date_start, 'YYYY') as "year",
             to_char(ap.date_start, 'MM') as "month",
             report_period_id, tax_sequence, tax_id, tax_sequence_display,
-            invoice_date, invoice_number, atd.partner_id,
+            invoice_date, invoice_number, atd.partner_id, cancel,
             case when cancel is true then ''
                 else rp.name end as partner_name,
             case when cancel is true then ''
