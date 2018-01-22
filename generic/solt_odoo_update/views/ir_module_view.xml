@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_module_form_inherit" model="ir.ui.view">
+            <field name="name">ir.module.module.form</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='/form/sheet/div/div' position="inside" version="7.0">
+                    <button name="button_update_self" states="installed" string="Update This Only" type="object" class="oe_highlight"/>
+                </xpath>
+            </field>
+		</record>
+
+        <record id="view_module_tree_inherit" model="ir.ui.view">
+            <field name="name">ir.module.module.tree</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_tree"/>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <button name="button_update_self" states="installed" icon="gtk-fullscreen" string="Update This Only" type="object"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
