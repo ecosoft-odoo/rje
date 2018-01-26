@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="recipt" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.y" value="207"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;line_ids&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<parameterDescription><![CDATA[]]></parameterDescription>
@@ -60,6 +60,9 @@
 	</field>
 	<field name="reference" class="java.lang.String">
 		<fieldDescription><![CDATA[line_ids/move_line_id/name]]></fieldDescription>
+	</field>
+	<field name="payment_ref" class="java.lang.String">
+		<fieldDescription><![CDATA[reference]]></fieldDescription>
 	</field>
 	<sortField name="invoice_no"/>
 	<variable name="string_total" class="java.lang.String">
@@ -244,7 +247,7 @@
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{receipt_number}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{payment_ref}]]></textFieldExpression>
 			</textField>
 			<image>
 				<reportElement x="1" y="1" width="42" height="46"/>
@@ -353,7 +356,7 @@
 				<textFieldExpression class="java.util.Date"><![CDATA[$F{date_original}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;(#,##0.00)">
-				<reportElement x="452" y="0" width="102" height="20"/>
+				<reportElement x="450" y="0" width="102" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -371,7 +374,7 @@
 				<text><![CDATA[ผู้รับเงิน]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="145" width="555" height="20"/>
+				<reportElement x="0" y="139" width="555" height="20"/>
 				<textElement textAlignment="Center">
 					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -404,12 +407,19 @@
 			<line>
 				<reportElement x="355" y="84" width="150" height="1"/>
 			</line>
+			<textField>
+				<reportElement x="417" y="147" width="137" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="6" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{receipt_number}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 	<lastPageFooter>
 		<band height="165">
 			<staticText>
-				<reportElement x="1" y="142" width="555" height="20"/>
+				<reportElement x="1" y="136" width="555" height="20"/>
 				<textElement textAlignment="Center">
 					<font size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -457,11 +467,18 @@
 				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{amount_in_word} + ")"]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00;(#,##0.00)">
-				<reportElement x="452" y="6" width="102" height="20"/>
+				<reportElement x="450" y="6" width="102" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount}==null?0:$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="147" width="137" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="6" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{receipt_number}]]></textFieldExpression>
 			</textField>
 		</band>
 	</lastPageFooter>
