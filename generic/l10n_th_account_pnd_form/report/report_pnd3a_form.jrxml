@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_pnd3a_form" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="0.7513148009015809"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA[System.getProperty("user.dir")
 +"/../../../pb2_generic/l10n_th_account_pnd_form/report/"]]></defaultValueExpression>
@@ -32,6 +32,8 @@
 	tax_payer,
 	supplier_street,
 	supplier_street2,
+	supplier_city,
+	supplier_postcode,
 	supplier_township,
 	supplier_district,
 	supplier_zip,
@@ -55,6 +57,8 @@ GROUP BY
 	tax_payer,
 	supplier_street,
 	supplier_street2,
+	supplier_city,
+	supplier_postcode,
 	supplier_township,
 	supplier_district,
 	supplier_zip,
@@ -70,6 +74,8 @@ GROUP BY
 	<field name="tax_payer" class="java.lang.String"/>
 	<field name="supplier_street" class="java.lang.String"/>
 	<field name="supplier_street2" class="java.lang.String"/>
+	<field name="supplier_city" class="java.lang.String"/>
+	<field name="supplier_postcode" class="java.lang.String"/>
 	<field name="supplier_township" class="java.lang.String"/>
 	<field name="supplier_district" class="java.lang.String"/>
 	<field name="supplier_zip" class="java.lang.String"/>
@@ -82,10 +88,9 @@ GROUP BY
 		<variableExpression><![CDATA[(new Scriptlet()).getAddress(
     $F{supplier_street},
     $F{supplier_street2},
-    $F{supplier_township},
-    $F{supplier_district},
-    $F{supplier_province},
-    $F{supplier_zip})]]></variableExpression>
+    $F{supplier_city},
+    $F{supplier_postcode},
+    null, null)]]></variableExpression>
 	</variable>
 	<variable name="tax_payer" class="java.lang.String">
 		<variableExpression><![CDATA[$F{tax_payer} == "withholding" ? "1" : "3"]]></variableExpression>
@@ -352,9 +357,9 @@ GROUP BY
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{supplier_taxid}.length()==13?$F{supplier_taxid}.substring(6,7):""]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="78" y="21" width="723" height="25"/>
+				<reportElement x="78" y="22" width="331" height="25"/>
 				<textElement verticalAlignment="Bottom" lineSpacing="Single">
-					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font fontName="SansSerif" size="9" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{supplier_address}]]></textFieldExpression>
 			</textField>
