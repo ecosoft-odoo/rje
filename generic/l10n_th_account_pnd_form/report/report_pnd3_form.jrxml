@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_pnd3_form" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.0000000000000024"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="30"/>
+	<property name="ireport.y" value="48"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA[System.getProperty("user.dir")
 +"/../../../pb2_generic/l10n_th_account_pnd_form/report/"]]></defaultValueExpression>
@@ -40,6 +40,8 @@ where wht_period_id = $P{wht_period_id} and income_tax_form = $P{income_tax_form
 	<field name="employee_id" class="java.lang.Integer"/>
 	<field name="supplier_street" class="java.lang.String"/>
 	<field name="supplier_street2" class="java.lang.String"/>
+	<field name="supplier_city" class="java.lang.String"/>
+	<field name="supplier_postcode" class="java.lang.String"/>
 	<field name="supplier_township" class="java.lang.String"/>
 	<field name="supplier_district" class="java.lang.String"/>
 	<field name="supplier_province" class="java.lang.String"/>
@@ -53,10 +55,9 @@ where wht_period_id = $P{wht_period_id} and income_tax_form = $P{income_tax_form
 		<variableExpression><![CDATA[(new Scriptlet()).getAddress(
     $F{supplier_street},
     $F{supplier_street2},
-    $F{supplier_township},
-    $F{supplier_district},
-    $F{supplier_province},
-    $F{supplier_zip})]]></variableExpression>
+    $F{supplier_city},
+    $F{supplier_postcode},
+    null, null)]]></variableExpression>
 	</variable>
 	<variable name="tax_payer" class="java.lang.String">
 		<variableExpression><![CDATA[$F{tax_payer} == "withholding" ? "1" : "3"]]></variableExpression>
@@ -358,9 +359,9 @@ where wht_period_id = $P{wht_period_id} and income_tax_form = $P{income_tax_form
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{supplier_branch}.length()==5?$F{supplier_branch}.substring(4,5):""]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="79" y="27" width="723" height="25"/>
+				<reportElement x="78" y="30" width="330" height="21"/>
 				<textElement verticalAlignment="Bottom" lineSpacing="Single">
-					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
+					<font fontName="SansSerif" size="9" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{supplier_address}]]></textFieldExpression>
 			</textField>
@@ -385,13 +386,6 @@ where wht_period_id = $P{wht_period_id} and income_tax_form = $P{income_tax_form
 					<font fontName="SansSerif" size="8" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{wht_sequence_display}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="351" y="3" width="100" height="15"/>
-				<textElement>
-					<font fontName="SansSerif" size="8" pdfFontName="Garuda.ttf"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{number}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="489" y="18" width="100" height="29">
@@ -425,28 +419,21 @@ where wht_period_id = $P{wht_period_id} and income_tax_form = $P{income_tax_form
 	<pageFooter>
 		<band height="129" splitType="Stretch">
 			<textField>
-				<reportElement x="593" y="7" width="198" height="35"/>
+				<reportElement x="593" y="26" width="198" height="35"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{print_name}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA["WIRAT SIRIPORNPRASARN"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="589" y="42" width="206" height="35"/>
+				<reportElement x="589" y="43" width="206" height="35"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{print_position}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA["General manager"]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMMM" isBlankWhenNull="true">
 				<reportElement x="631" y="71" width="136" height="25"/>
-				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
-					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$V{day}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd" isBlankWhenNull="true">
-				<reportElement x="599" y="72" width="74" height="25"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
