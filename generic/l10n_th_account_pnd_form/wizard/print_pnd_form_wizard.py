@@ -38,9 +38,10 @@ class PrintPNDFormWizard(models.TransientModel):
         required=False,
     )
     print_format = fields.Selection(
-        [('pdf', 'PDF'),
-         ('xls', 'XLS'),
-         ('txt_csv', 'TXT')],
+        # [('pdf', 'PDF'),
+        #  ('xls', 'XLS'),
+        #  ('txt_csv', 'TXT')],
+        [('pdf', 'PDF')],  # Only pdf format
         string='Print Format',
         default='pdf',
         required=True,
