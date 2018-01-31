@@ -37,6 +37,8 @@ from openerp import pooler
 from openerp.osv import orm, osv, fields
 from openerp import tools
 from openerp import netsvc
+from openerp import _
+from openerp.exceptions import except_orm
 
 import os
 import tempfile
@@ -162,6 +164,11 @@ class Report:
         copy = 1
         while copy <= copies:
             pages = self.executeReport(dataFile, outputFile, subreportDataFiles, copy, force_locale)
+
+            # If No Data (When No Data = No Pages)
+            if not pages:
+                raise except_orm(_('Error !'), _('No data available'))
+
             elapsed = (time.time() - start) / 60
             logger.info("ELAPSED: %f" % elapsed)
             # Read data from the generated file and return it

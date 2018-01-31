@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="withholding_cert" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.2100000000000104"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="960"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA[System.getProperty("user.dir") + "/../../../pb2_generic/l10n_th_account/report/"]]></defaultValueExpression>
 	</parameter>
@@ -369,20 +369,6 @@ select id from res_company limit 1;]]>
 					<font fontName="Monospaced" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$P{type_6_base}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="0" width="87" height="28"/>
-				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
-					<font fontName="Monospaced" size="18" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{COPY} == 1 ? "ต้นฉบับ" : "สำเนา"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="368" y="41" width="208" height="28"/>
-				<textElement verticalAlignment="Bottom" lineSpacing="Single">
-					<font fontName="Monospaced" size="18" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{voucher_number}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="78" y="191" width="208" height="35"/>
