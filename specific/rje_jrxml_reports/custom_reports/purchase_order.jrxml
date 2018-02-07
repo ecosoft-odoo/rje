@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="purchase_order" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.2396694214876032"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="542"/>
+	<property name="ireport.y" value="206"/>
 	<property name="OPENERP_RELATIONS" value="[&quot;order_line&quot;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString language="xPath">
@@ -119,7 +119,7 @@
 				<reportElement x="376" y="273" width="1" height="286"/>
 			</line>
 			<line>
-				<reportElement x="432" y="273" width="1" height="286"/>
+				<reportElement x="439" y="273" width="1" height="286"/>
 			</line>
 			<line>
 				<reportElement x="476" y="273" width="1" height="346"/>
@@ -420,14 +420,14 @@
 				<text><![CDATA[จำนวน]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="432" y="14" width="43" height="15"/>
+				<reportElement x="440" y="14" width="37" height="15"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="8"/>
 				</textElement>
 				<text><![CDATA[%]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="377" y="14" width="54" height="15"/>
+				<reportElement x="377" y="14" width="59" height="15"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="8"/>
 				</textElement>
@@ -483,7 +483,7 @@
 				<text><![CDATA[ลำดับ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="432" y="-1" width="43" height="21"/>
+				<reportElement x="440" y="-1" width="37" height="21"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -497,7 +497,7 @@
 				<text><![CDATA[Amount]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="379" y="-1" width="54" height="21"/>
+				<reportElement x="379" y="-1" width="59" height="21"/>
 				<textElement textAlignment="Center">
 					<font fontName="Garuda" size="11" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -522,7 +522,7 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="433" y="0" width="42" height="20"/>
+				<reportElement x="438" y="0" width="37" height="20"/>
 				<textElement textAlignment="Center">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
@@ -535,14 +535,14 @@
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{unit}==null?0:$V{unit} + " " + ($F{uop_name}==""?$F{product_uom}:$F{product_uop})]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)">
-				<reportElement x="377" y="0" width="54" height="20"/>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)">
+				<reportElement x="377" y="0" width="61" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[($F{uop_name}==""? $F{price_unit_uom}:$F{price_unit_uop})==null?0:($F{uop_name}==""? $F{price_unit_uom}:$F{price_unit_uop})]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)">
 				<reportElement x="477" y="0" width="76" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
@@ -702,8 +702,8 @@
 				<text><![CDATA[2.กรุณาเเนบใบสำเนาสั่งซื้อ (P.O.) พร้อมต้นฉบับ ใบกำกับภาษีเเละสำเนา 2 ฉบับ ทุกครั้งในการส่งสินค้า ]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="24" y="24" width="353" height="20"/>
-				<textElement textAlignment="Center">
+				<reportElement x="24" y="11" width="353" height="36"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{amount_in_word} + ")"]]></textFieldExpression>
@@ -748,21 +748,21 @@
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA["(" + $F{approved} + ")"]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)">
 				<reportElement x="477" y="41" width="76" height="20"/>
 				<textElement textAlignment="Right">
 					<font isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_total} == null? 0: $F{amount_total}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)">
 				<reportElement x="477" y="1" width="76" height="20"/>
 				<textElement textAlignment="Right">
 					<font isBold="true" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Number"><![CDATA[$F{amount_untaxed}==null?0:$F{amount_untaxed}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;(#,##0.00)">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;(#,##0.00)">
 				<reportElement x="477" y="21" width="76" height="20"/>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
