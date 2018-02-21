@@ -33,6 +33,9 @@
         <field name="model">stock.move</field>
         <field name="inherit_id" ref="stock.view_move_picking_tree"/>
         <field name="arch" type="xml">
+          <field name="product_id" position="after">
+            <field name="name"/>
+          </field>
           <field name="product_uos" position="after">
             <field name="product_uop_qty_receive"/>
           </field>

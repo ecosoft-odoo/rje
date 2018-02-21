@@ -12,6 +12,7 @@
         'stock',
     ],
     'data': [
+        'wizard/stock_transfer_details.xml',
         'views/report_stockpicking.xml',
         'views/stock_view.xml',
     ],
