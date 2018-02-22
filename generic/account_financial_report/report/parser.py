@@ -139,7 +139,9 @@ class account_balance(report_sxw.rml_parse):
         fiscalyear_id = form[
             'fiscalyear'] or fiscalyear_obj.find(self.cr, self.uid)
         period_ids = period_obj.search(self.cr, self.uid, [(
-            'fiscalyear_id', '=', fiscalyear_id), ('special', '=', False)])
+            'fiscalyear_id', '=', fiscalyear_id),
+            # ('special', '=', False)
+            ])
         if form['filter'] in ['byperiod', 'all']:
             period_ids = form['periods']
         periods_str = ', '.join([period.name or period.code
@@ -158,7 +160,8 @@ class account_balance(report_sxw.rml_parse):
     def special_period(self, periods):
         period_obj = self.pool.get('account.period')
         period_brw = period_obj.browse(self.cr, self.uid, periods)
-        period_counter = [True for i in period_brw if not i.special]
+        # period_counter = [True for i in period_brw if not i.special]
+        period_counter = [True for i in period_brw]
         if not period_counter:
             return True
         return False
@@ -470,7 +473,8 @@ class account_balance(report_sxw.rml_parse):
                         self.cr, self.uid,
                         [('id', 'in', form['periods'] or ctx_end.get('periods',
                                                                      False)),
-                         ('special', '=', False)])
+                         # ('special', '=', False)
+                         ])
 
             if form['filter'] in ['bydate', 'all', 'none']:
                 ctx_end['date_from'] = form['date_from']
@@ -502,7 +506,6 @@ class account_balance(report_sxw.rml_parse):
             ctx_init = self.context.copy()
             ctx_init['filter'] = form.get('filter', 'all')
             ctx_init['fiscalyear'] = fiscalyear.id
-
             if form['filter'] in ['byperiod', 'all']:
                 ctx_init['periods'] = form['periods']
                 if not ctx_init['periods']:
@@ -607,7 +610,8 @@ class account_balance(report_sxw.rml_parse):
         if not form['periods']:
             form['periods'] = period_obj.search(
                 self.cr, self.uid, [('fiscalyear_id', '=', fiscalyear.id),
-                                    ('special', '=', False)],
+                                    # ('special', '=', False)
+                                    ],
                 order='date_start asc')
             if not form['periods']:
                 raise osv.except_osv(_('UserError'), _(
@@ -616,7 +620,8 @@ class account_balance(report_sxw.rml_parse):
         if form['columns'] == 'qtr':
             period_ids = period_obj.search(
                 self.cr, self.uid, [('fiscalyear_id', '=', fiscalyear.id),
-                                    ('special', '=', False)],
+                                    # ('special', '=', False)
+                                    ],
                 order='date_start asc')
             a = 0
             l = []
@@ -638,7 +643,8 @@ class account_balance(report_sxw.rml_parse):
         elif form['columns'] == 'thirteen':
             period_ids = period_obj.search(
                 self.cr, self.uid, [('fiscalyear_id', '=', fiscalyear.id),
-                                    ('special', '=', False)],
+                                    # ('special', '=', False)
+                                    ],
                 order='date_start asc')
             tot_bal1 = 0.0
             tot_bal1 = 0.0
@@ -707,7 +713,7 @@ class account_balance(report_sxw.rml_parse):
         # This could be done quickly with a sql sentence
         account_not_black = list(account_obj.browse(
             self.cr, self.uid, account_not_black_ids))
-        
+
         account_not_black.sort(key=lambda x: x.level)
         account_not_black.reverse()
         account_not_black_ids = [i.id for i in account_not_black]

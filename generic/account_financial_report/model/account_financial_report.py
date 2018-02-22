@@ -175,7 +175,8 @@ class account_financial_report(osv.osv):
             p_obj = self.pool.get("account.period")
             period_ids = p_obj.search(cr, uid,
                                       [('fiscalyear_id', '=', fiscalyear_id),
-                                       ('special', '=', False)],
+                                       # ('special', '=', False)
+                                       ],
                                       context=context)
             res['value'].update({'period_ids': period_ids})
         else:
