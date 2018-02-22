@@ -152,7 +152,8 @@ class wizard_report(osv.osv_memory):
         p_obj = self.pool.get("account.period")
         all_periods = p_obj.search(cr, uid,
                                    [('fiscalyear_id', '=', fiscalyear),
-                                    ('special', '=', False)], context=context)
+                                    # ('special', '=', False)
+                                    ], context=context)
         s = set(periods[0][2])
         t = set(all_periods)
         go = periods[0][2] and s.issubset(t) or False
@@ -184,7 +185,7 @@ class wizard_report(osv.osv_memory):
     def onchange_company_id(self, cr, uid, ids, company_id, context=None):
         if context is None:
             context = {}
-            
+
         context = dict(context)
         context['company_id'] = company_id
         res = {'value': {}}
@@ -292,18 +293,19 @@ class wizard_report(osv.osv_memory):
         if not ids:
             # ~ No hay periodos
             return ap_obj.search(cr, uid, [('fiscalyear_id', '=', fy_id),
-                                           ('special', '=', False)],
-                                 order='date_start asc')
+                                           # ('special', '=', False)
+                                           ],
+                                 order='date_stop asc')
 
         ap_brws = ap_obj.browse(cr, uid, ids, context=context)
         date_start = min([period.date_start for period in ap_brws])
         date_stop = max([period.date_stop for period in ap_brws])
 
         return ap_obj.search(cr, uid, [('fiscalyear_id', '=', fy_id),
-                                       ('special', '=', False),
+                                       # ('special', '=', False),
                                        ('date_start', '>=', date_start),
                                        ('date_stop', '<=', date_stop)],
-                             order='date_start asc')
+                             order='date_stop asc')
 
     def print_report(self, cr, uid, ids, data, context=None):
         if context is None:
