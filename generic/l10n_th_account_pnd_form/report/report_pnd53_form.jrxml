@@ -423,14 +423,14 @@ where state != 'cancel' and wht_period_id = $P{wht_period_id} and income_tax_for
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA["WIRAT SIRIPORNPRASARN"]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA["นายวิรัช   ศิริพรประสาร"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="529" y="53" width="206" height="35"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom" lineSpacing="Single">
 					<font fontName="SansSerif" size="10" pdfFontName="Garuda.ttf" pdfEncoding="Identity-H"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA["General manager"]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA["ผู้จัดการทั่วไป"]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMMM" isBlankWhenNull="true">
 				<reportElement x="560" y="79" width="136" height="25"/>
