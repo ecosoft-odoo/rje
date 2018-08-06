@@ -126,7 +126,7 @@ class ReportPNDForm(models.Model):
             left outer join res_country_district dt on dt.id = rp.district_id
             left outer join res_country_province pv on pv.id = rp.province_id
             left outer join res_country co on co.id = rp.country_id
-        where av.wht_sequence > 0
+        where av.wht_sequence > 0 and avt.tax_code_type = 'wht'
         group by av.state, av.wht_sequence_display, av.number,
             av.date_value, av.income_tax_form, av.wht_period_id, av.id,
             av.tax_payer, rp.vat, rp.taxbranch, rp.id, rp.name,
