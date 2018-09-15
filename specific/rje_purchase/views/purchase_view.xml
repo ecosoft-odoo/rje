@@ -22,6 +22,33 @@
                 <button name="print_quotation" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </button>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='taxes_id']" position="after">
+                    <field name="amount_discount" context="{'by_amount_discount': True}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='taxes_id']" position="after">
+                    <field name="percent_discount" context="{'by_percent_discount': True}"/>
+                </xpath>
+                <!--invisible-->
+                <xpath expr="//field[@name='order_line']/tree//field[@name='discount']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="purchase_order_line_form">
+            <field name="name">purchase.order.line.form</field>
+            <field name="model">purchase.order.line</field>
+            <field name="inherit_id" ref="purchase.purchase_order_line_form" />
+            <field name="arch" type="xml">
+                <field name="discount" position="after">
+                    <field name="amount_discount" context="{'by_amount_discount': True}"/>
+                </field>
+                <field name="discount" position="after">
+                    <field name="percent_discount" context="{'by_percent_discount': True}"/>
+                </field>
+                <field name="discount" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
             </field>
         </record>
 
