@@ -20,6 +20,14 @@ class PurchaseOrder(models.Model):
         string='Incoming Shipments',
         compute='_compute_shipment_count',
     )
+    amount_discount = fields.Float(
+        string='Discount (Amt.)',
+        related='order_line.amount_discount',
+    )
+    percent_discount = fields.Float(
+        string='Discount (%)',
+        related='order_line.percent_discount',
+    )
 
     @api.multi
     def _compute_shipment_count(self):
@@ -51,3 +59,30 @@ class PurchaseOrder(models.Model):
             action['views'] = [(res and res[1] or False, 'form')]
             action['res_id'] = pickings.ids and pickings.ids[0] or False
         return action
+
+
+class PurchaseOrderLine(models.Model):
+    _inherit = 'purchase.order.line'
+
+    amount_discount = fields.Float(
+        string='Discount (Amt.)',
+    )
+    percent_discount = fields.Float(
+        string='Discount (%)',
+    )
+
+    @api.onchange('amount_discount', 'price_unit', 'product_qty')
+    def _onchange_amount_discount(self):
+        if self._context.get('by_amount_discount', False):
+            self.percent_discount = False
+            price_subtotal = self.price_unit * self.product_qty
+            if not price_subtotal:
+                self.discount = 0.0
+            else:
+                self.discount = self.amount_discount / price_subtotal * 100.0
+
+    @api.onchange('percent_discount')
+    def _onchange_discount_percent(self):
+        if self._context.get('by_percent_discount', False):
+            self.amount_discount = False
+            self.discount = self.percent_discount
