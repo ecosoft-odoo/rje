@@ -96,10 +96,10 @@
 		<fieldDescription><![CDATA[amount_total_text_en]]></fieldDescription>
 	</field>
 	<field name="amount_discount" class="java.lang.Number">
-		<fieldDescription><![CDATA[amount_discount]]></fieldDescription>
+		<fieldDescription><![CDATA[order_line/amount_discount]]></fieldDescription>
 	</field>
 	<field name="percent_discount" class="java.lang.Number">
-		<fieldDescription><![CDATA[percent_discount]]></fieldDescription>
+		<fieldDescription><![CDATA[order_line/percent_discount]]></fieldDescription>
 	</field>
 	<variable name="string_total" class="java.lang.String">
 		<variableExpression><![CDATA[(Math.round($F{amount_total}==null?0:$F{amount_total}*100)/100).toString()]]></variableExpression>
