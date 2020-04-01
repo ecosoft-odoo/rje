@@ -221,13 +221,13 @@ class AccountBankReceipt(models.Model):
             receipt.write({'state': 'draft'})
         return True
 
-    @api.model
-    def create(self, vals):
-        # if vals.get('name', '/') == '/':
-        #     vals['name'] = self.env['ir.sequence'].\
-        #         next_by_code('account.bank.receipt')
-        vals['name'] = ''
-        return super(AccountBankReceipt, self).create(vals)
+    # @api.model
+    # def create(self, vals):
+    #     # if vals.get('name', '/') == '/':
+    #     #     vals['name'] = self.env['ir.sequence'].\
+    #     #         next_by_code('account.bank.receipt')
+    #     vals['name'] = ''
+    #     return super(AccountBankReceipt, self).create(vals)
 
     @api.model
     def _prepare_account_move_vals(self, receipt):
