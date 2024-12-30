@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="ir_cron_run_update_processing_document" model="ir.cron">
+            <field name="name">INET ETax Run Update Processing Document</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False" />
+            <field name="model">account.invoice</field>
+            <field name="function">run_update_processing_document</field>
+            <field name="args">()</field>
+            <field name="priority">5</field>
+        </record>
+        <record id="ir_cron_run_sign_etax" model="ir.cron">
+            <field name="name">INET ETax Run Sign ETax</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False" />
+            <field name="model">account.invoice</field>
+            <field name="function">run_sign_etax</field>
+            <field name="args">()</field>
+            <field name="priority">5</field>
+        </record>
+    </data>
+</openerp>

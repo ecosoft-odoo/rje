@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+    <data>
+
+        <record id="view_account_config_settings_inherit" model="ir.ui.view">
+            <field name="name">account settings</field>
+            <field name="model">account.config.settings</field>
+            <field name="inherit_id" ref="account.view_account_config_settings"/>
+            <field name="priority" eval="30" />
+            <field name="arch" type="xml">
+                <xpath
+                    expr="//separator[@string='eInvoicing &amp; Payments']"
+                    position="before"
+                >
+                    <separator string="Ecosoft e-Tax Services"/>
+                    <group>
+                        <label for="id" string="Frappe Server"/>
+                        <div name="frappe_server_config">
+                            <div>
+                                <label for="frappe_server_url" />
+                                <field name="frappe_server_url" class="oe_inline"/>
+                            </div>
+                            <div>
+                                <label for="frappe_auth_token" />
+                                <field name="frappe_auth_token" class="oe_inline"/>
+                            </div>
+                            <div>
+                                <field name="is_send_etax_email" class="oe_inline"/>
+                                <label for="is_send_etax_email" />
+                                <div class="text-muted">
+                                    Allow to send an email to partner after sign etax.
+                                </div>
+                            </div>
+                            <div>
+                                <label for="replacement_lock_date" />
+                                <field name="replacement_lock_date" class="oe_inline"/>
+                                <div class="text-muted">
+                                e-Tax Replacement not allowed after this date of next invoice month<br
+                                />
+                                For example, if replace lock date is 10 and invoice date is 20/11/2000, replacement e-Tax is not allowed after 10/12/2000.
+                            </div>
+                            </div>
+                        </div>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
