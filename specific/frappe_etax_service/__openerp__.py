@@ -16,14 +16,14 @@
     Connector to Frappe eTax service.
     """,
     'depends': [
-        'account',
+        'account', 'account_debitnote'
     ],
     'data': [
         'security/ir.model.access.csv',
         'data/purpose_code_data.xml',
         'data/cron.xml',
         'wizards/wizard_select_etax_doctype_view.xml',
-        # 'wizards/account_move_reversal_view.xml',
+        'wizards/account_debitnote_view.xml',
         'wizards/account_invoice_refund_view.xml',
         'wizards/wizard_select_replacement_purpose.xml',
         'views/account_move_views.xml',

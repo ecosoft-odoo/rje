@@ -34,7 +34,7 @@ def prepare_data_invoice(doc):
     d["buyer_name"] = doc.partner_id.name
     d["buyer_type"] = "TXID"  # TXID, NIDN, CCPT, OTHR (no taxid)
     d["buyer_tax_id"] = doc.partner_id.vat
-    d["buyer_branch_id"] = doc.partner_id.branch or "00000"
+    d["buyer_branch_id"] = doc.partner_id.taxbranch or "00000"
     d["buyer_email"] = doc.partner_id.email
     d["buyer_zip"] = doc.partner_id.zip
     d["buyer_building_name"] = ""
@@ -105,7 +105,7 @@ def prepare_data_payment(doc):
     d["buyer_name"] = doc.partner_id.name
     d["buyer_type"] = "TXID"  # TXID, NIDN, CCPT, OTHR (no taxid)
     d["buyer_tax_id"] = doc.partner_id.vat
-    d["buyer_branch_id"] = doc.partner_id.branch or "00000"
+    d["buyer_branch_id"] = doc.partner_id.taxbranch or "00000"
     d["buyer_email"] = doc.partner_id.email
     d["buyer_zip"] = doc.partner_id.zip
     d["buyer_building_name"] = ""
@@ -120,18 +120,18 @@ def prepare_data_payment(doc):
         doc.partner_id.country_id and doc.partner_id.country_id.code or ""
     )
     doc_lines = []
-    for line in doc.tax_invoice_ids:
+    for line in doc.tax_line_normal:
         doc_lines.append(
             {
-                "product_code": line.tax_invoice_number,
-                "product_name": line.tax_invoice_number,
-                "product_price": line.tax_base_amount,
+                "product_code": line.voucher_id,
+                "product_name": line.voucher_id,
+                "product_price": line.base,
                 "product_quantity": 1,
-                "line_tax_type_code": line.tax_line_id.name and "VAT" or "FRE",
-                "line_tax_rate": line.tax_line_id.amount,
-                "line_base_amount": line.tax_base_amount,
-                "line_tax_amount": line.balance,
-                "line_total_amount": line.tax_base_amount + line.balance,
+                "line_tax_type_code": line.tax_id.name and "VAT" or "FRE",
+                "line_tax_rate": line.tax_id.amount,
+                "line_base_amount": line.base,
+                "line_tax_amount": line.amount,
+                "line_total_amount": line.base + line.amount,
             }
         )
     d["line_item_information"] = doc_lines

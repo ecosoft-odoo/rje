@@ -1,15 +1,20 @@
-# Copyright 2023 Ecosoft., co.th
+# -*- coding: utf-8 -*-
+##############################################################################
+# Copyright 2023 Ecosoft
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo import api, fields, models
+##############################################################################
 
 
-class AccountMoveReversal(models.TransientModel):
-    _inherit = "account.move.reversal"
+from openerp import models, fields, api, _
+
+
+class AccountDebitNote(models.TransientModel):
+    _inherit = "account.debitnote"
 
     purpose_code_id = fields.Many2one(
         "purpose.code", string="Refund Reason", domain="[('is_credit_note', '=', True)]"
     )
-    purpose_code = fields.Char()
+    purpose_code = fields.Char(string="Purpose Code")
 
     @api.onchange("purpose_code_id")
     def _onchange_purpose_code_id(self):
@@ -21,12 +26,20 @@ class AccountMoveReversal(models.TransientModel):
                 or ""
             )
 
-    def reverse_moves(self):
-        res = super().reverse_moves()
-        self.move_ids.mapped("reversal_move_id").write(
-            {
-                "create_purpose_code": self.purpose_code_id.code,
-                "create_purpose": self.reason,
-            }
-        )
-        return res
+    @api.multi
+    def invoice_debitnote(self):
+        result = super(AccountDebitNote, self).invoice_debitnote()
+        inv_obj = self.env["account.invoice"]
+        created_inv = inv_obj.browse(result["domain"][1][2])
+        for form in self:
+            purpose_code_id = form.purpose_code_id
+            reason = form.reason
+            if created_inv:
+                for inv in created_inv:
+                    inv.write(
+                        {
+                            "create_purpose_code": purpose_code_id.code,
+                            "create_purpose": reason,
+                        }
+                    )
+        return result
