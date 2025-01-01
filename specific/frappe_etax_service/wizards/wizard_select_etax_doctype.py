@@ -20,7 +20,7 @@ class WizardSelectEtaxDoctype(osv.osv_memory):
                 ('out_invoice', 'Customer Invoice'),
                 ('out_refund', 'Customer Credit Note'),
                 ('out_invoice_debit', 'Customer Debit Note'),
-                ('entry', 'Customer Payment'),
+                ('receipt', 'Customer Payment'),
             ],
             'Type',
         ),
@@ -55,7 +55,7 @@ class WizardSelectEtaxDoctype(osv.osv_memory):
             }
         )
         # Validation
-        if type not in ['entry', 'out_invoice', 'out_refund', 'out_invoice_debit', 'receipt']:
+        if type not in ['out_invoice', 'out_refund', 'out_invoice_debit', 'receipt']:
             raise ValidationError(_('Only customer invoice can sign eTax'))
         return res
 

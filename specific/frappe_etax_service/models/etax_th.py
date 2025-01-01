@@ -87,10 +87,6 @@ class ETaxTH(osv.AbstractModel):
             '[["transaction_code","=","{}"]]'
             "&fields={}".format(server_url, self.etax_transaction_code, field_api)
         )
-        print("url: ", url)
-        authorization = "token %s" % auth_token
-        print("auth_token: ", authorization)
-        x=3/0
         res = requests.get(
             url,
             headers={"Authorization": "token %s" % auth_token},
@@ -185,10 +181,6 @@ class ETaxTH(osv.AbstractModel):
 
     def _send_to_frappe(self, doc_data, form_type, form_name, pdf_content):
         auth_token, server_url = self._get_connection()
-        # # for test only
-
-        print("doc_data: ", json.dumps(doc_data))
-        # x=1/0
         try:
             res = requests.post(
                 url="{}{}".format(server_url.replace("u'","").replace("'",""), "/api/method/etax_inet.api.etax.sign_etax_document"),

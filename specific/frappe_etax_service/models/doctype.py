@@ -4,6 +4,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 ##############################################################################
 
+
 from openerp.osv import osv, fields
 
 class DocType(osv.osv):
@@ -21,7 +22,7 @@ class DocType(osv.osv):
                 ('out_invoice', 'Customer Invoice'),
                 ('out_refund', 'Customer Credit Note'),
                 ('out_invoice_debit', 'Customer Debit Note'),
-                ('entry', 'Customer Payment'),
+                ('receipt', 'Customer Payment'),
             ],
             string='Type',
         ),

@@ -19,17 +19,11 @@ def prepare_data_invoice(doc):
     d["ref_document_issue_dtm"] = doc._get_origin_data()[0]
     d["ref_document_type_code"] = doc._get_origin_data()[1]
     d["buyer_ref_document"] = doc.origin and doc.origin or ""
-    d["seller_branch_id"] = doc._get_branch_id() or doc.company_id.branch
+    d["seller_branch_id"] = doc._get_branch_id() or doc.company_id.partner_id.taxbranch
     d["source_system"] = (
         doc.env["ir.config_parameter"].sudo().get_param("web.base.url", "")
     )
-    d["send_mail"] = (
-        "Y"
-        if doc.env["ir.config_parameter"]
-        .sudo()
-        .get_param("frappe_etax_service.is_send_etax_email")
-        else "N"
-    )
+    d["send_mail"] = bool(doc.env["ir.config_parameter"].sudo().get_param("frappe_etax_service.is_send_etax_email")) and 'Y' or 'N'
     d["seller_tax_id"] = doc.company_id.vat
     d["buyer_name"] = doc.partner_id.name
     d["buyer_type"] = "TXID"  # TXID, NIDN, CCPT, OTHR (no taxid)
@@ -81,7 +75,7 @@ def prepare_data_payment(doc):
     d["currency_code"] = doc.currency_id.name
     d["document_type_code"] = doc.etax_doctype
     d["document_id"] = doc.number
-    d["document_issue_dtm"] = doc.date and doc.date.strftime("%Y-%m-%dT%H:%M:%S")
+    d["document_issue_dtm"] = doc.date and doc.date + "T00:00:00"
     # As of now, no use for payment
     d["create_purpose_code"] = ""
     d["create_purpose"] = ""
@@ -89,18 +83,12 @@ def prepare_data_payment(doc):
     d["ref_document_issue_dtm"] = ""
     d["ref_document_type_code"] = ""
     # --
-    d["buyer_ref_document"] = doc.ref
-    d["seller_branch_id"] = doc._get_branch_id() or doc.company_id.branch
+    d["buyer_ref_document"] = doc.reference
+    d["seller_branch_id"] = doc.company_id.partner_id.taxbranch
     d["source_system"] = (
         doc.env["ir.config_parameter"].sudo().get_param("web.base.url", "")
     )
-    d["send_mail"] = (
-        "Y"
-        if doc.env["ir.config_parameter"]
-        .sudo()
-        .get_param("frappe_etax_service.is_send_etax_email")
-        else "N"
-    )
+    d["send_mail"] = bool(doc.env["ir.config_parameter"].sudo().get_param("frappe_etax_service.is_send_etax_email")) and 'Y' or 'N'
     d["seller_tax_id"] = doc.company_id.vat
     d["buyer_name"] = doc.partner_id.name
     d["buyer_type"] = "TXID"  # TXID, NIDN, CCPT, OTHR (no taxid)
@@ -123,8 +111,8 @@ def prepare_data_payment(doc):
     for line in doc.tax_line_normal:
         doc_lines.append(
             {
-                "product_code": line.voucher_id,
-                "product_name": line.voucher_id,
+                "product_code": line.invoice_id.number,
+                "product_name": line.invoice_id.number,
                 "product_price": line.base,
                 "product_quantity": 1,
                 "line_tax_type_code": line.tax_id.name and "VAT" or "FRE",
