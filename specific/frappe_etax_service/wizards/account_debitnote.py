@@ -34,10 +34,12 @@ class AccountDebitNote(models.TransientModel):
         for form in self:
             purpose_code_id = form.purpose_code_id
             reason = form.reason
+            origin = form.preprint_number
             if created_inv:
                 for inv in created_inv:
                     inv.write(
                         {
+                            "origin": origin,
                             "create_purpose_code": purpose_code_id.code,
                             "create_purpose": reason,
                         }

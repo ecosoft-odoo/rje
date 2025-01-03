@@ -29,7 +29,7 @@ class account_invoice(osv.osv):
                     origin etax_doctype
         """
         if self.origin:
-            self._cr.execute("SELECT date_invoice, etax_doctype FROM account_invoice WHERE number = %s::varchar",
+            self._cr.execute("SELECT date_invoice, etax_doctype FROM account_invoice WHERE preprint_number = %s::varchar",
                  (self.origin,))
             data = self._cr.fetchone()
             if data:
@@ -47,7 +47,7 @@ class account_invoice(osv.osv):
         """
         original_amount_untaxed = corrected_amount_untaxed = diff_amount_untaxed = 0.00
         if self.origin:
-            self._cr.execute("SELECT amount_untaxed FROM account_invoice WHERE number = %s::varchar",
+            self._cr.execute("SELECT amount_untaxed FROM account_invoice WHERE preprint_number = %s::varchar",
                  (self.origin,))
             data = self._cr.fetchone()
             if data:
@@ -85,13 +85,13 @@ class account_invoice(osv.osv):
                 "force_copy_stock_moves": True,
             }
         ).copy_data()
-        old_number = self.number
+        old_number = self.preprint_number
         suffix = "-R"
         if suffix in old_number:
-            [number, rev] = old_number.split(suffix)
-            res[0]["name"] = "{}{}{}".format(number, suffix, int(rev) + 1)
+            [preprint_number, rev] = old_number.split(suffix)
+            res[0]["preprint_number"] = "{}{}{}".format(preprint_number, suffix, int(rev) + 1)
         else:
-            res[0]["name"] = "{}{}{}".format(old_number, suffix, 1)
+            res[0]["preprint_number"] = "{}{}{}".format(old_number, suffix, 1)
         res[0]["reference_type"] = self.reference_type
         res[0]["date_invoice"] = self.date_invoice
         res[0]["date_due"] = self.date_due
@@ -99,5 +99,5 @@ class account_invoice(osv.osv):
         move = self.create(res[0])
         self.action_cancel_draft()
         self.signal_workflow('invoice_cancel')
-        self.name = old_number  # Ensure name.
+        self.preprint_number = old_number  # Ensure name.
         return move

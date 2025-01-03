@@ -11,7 +11,7 @@ def prepare_data_invoice(doc):
     d = {}
     d["currency_code"] = doc.currency_id.name
     d["document_type_code"] = doc.etax_doctype
-    d["document_id"] = doc.number
+    d["document_id"] = doc.preprint_number
     d["document_issue_dtm"] = doc.date_invoice + "T00:00:00"
     d["create_purpose_code"] = doc.create_purpose_code
     d["create_purpose"] = doc.create_purpose
@@ -111,8 +111,8 @@ def prepare_data_payment(doc):
     for line in doc.tax_line_normal:
         doc_lines.append(
             {
-                "product_code": line.invoice_id.number,
-                "product_name": line.invoice_id.number,
+                "product_code": line.invoice_id.preprint_number,
+                "product_name": line.invoice_id.preprint_number,
                 "product_price": line.base,
                 "product_quantity": 1,
                 "line_tax_type_code": line.tax_id.name and "VAT" or "FRE",
