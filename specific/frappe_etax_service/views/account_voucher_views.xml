@@ -41,7 +41,7 @@
                             'invisible': ['|', '|', '|',
                                 ('etax_status', 'in', ['success']),
                                 ('state', 'not in', ['posted']),
-                                ('tax_line_normal', '=', [])]
+                                ('tax_line_normal', '=', []),
                             ]
                         }"
                     />
