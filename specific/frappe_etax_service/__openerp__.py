@@ -31,6 +31,7 @@
         'views/res_config_settings.xml',
         'views/purpose_code_views.xml',
         'views/doctype_views.xml',
+        'views/res_partner_view.xml',
     ],
     'installable': True,
     'auto_install': False,
