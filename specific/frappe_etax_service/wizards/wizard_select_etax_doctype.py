@@ -89,7 +89,7 @@ class WizardSelectEtaxDoctype(osv.osv_memory):
         if invalid:
             raise ValidationError(
                 _('%s, eTax status is in Processing/Success')
-                % ', '.join(invalid.mapped('name'))
+                % ', '.join(invalid.mapped('preprint_number'))
             )
         # Not in valid customer invoice type
         invalid = invoices.filtered(
@@ -98,7 +98,7 @@ class WizardSelectEtaxDoctype(osv.osv_memory):
         if invalid:
             raise ValidationError(
                 _('%s type not valid\nOnly customer invoices can sign eTax')
-                % ', '.join(invalid.mapped('name'))
+                % ', '.join(invalid.mapped('preprint_number'))
             )
         # Not posted
         invalid = invoices.filtered(lambda inv: inv.move_id.state != 'posted')
@@ -110,5 +110,5 @@ class WizardSelectEtaxDoctype(osv.osv_memory):
         invalid = invoices.filtered(lambda inv: not inv.tax_line)
         if invalid:
             raise ValidationError(
-                _('%s has no tax invoice') % ', '.join(invalid.mapped('display_name'))
+                _('%s has no tax invoice') % ', '.join(invalid.mapped('preprint_number'))
             )
