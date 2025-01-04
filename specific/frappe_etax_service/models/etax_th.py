@@ -81,6 +81,8 @@ class ETaxTH(osv.AbstractModel):
         if self.etax_status != "processing":
             return
         auth_token, server_url = self._get_connection()
+        auth_token = auth_token.replace("u'","").replace("'","")
+        server_url = server_url.replace("u'","").replace("'","")
         field_api = self._get_field_api()
         url = (
             "{}/api/resource/INET ETax Document?filters="

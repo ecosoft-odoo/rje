@@ -23,13 +23,13 @@ def prepare_data_invoice(doc):
     d["source_system"] = (
         doc.env["ir.config_parameter"].sudo().get_param("web.base.url", "")
     )
-    d["send_mail"] = bool(doc.env["ir.config_parameter"].sudo().get_param("frappe_etax_service.is_send_etax_email")) and 'Y' or 'N'
+    d["send_mail"] = 'Y' if doc.env["ir.config_parameter"].sudo().get_param("frappe_etax_service.is_send_etax_email") == 'True' else 'N'
     d["seller_tax_id"] = doc.company_id.vat
     d["buyer_name"] = doc.partner_id.name
     d["buyer_type"] = "TXID"  # TXID, NIDN, CCPT, OTHR (no taxid)
     d["buyer_tax_id"] = doc.partner_id.vat
     d["buyer_branch_id"] = doc.partner_id.taxbranch or "00000"
-    d["buyer_email"] = doc.partner_id.email
+    d["buyer_email"] = doc.partner_id.email_etax
     d["buyer_zip"] = doc.partner_id.zip
     d["buyer_building_name"] = ""
     d["buyer_building_no"] = ""
@@ -88,13 +88,13 @@ def prepare_data_payment(doc):
     d["source_system"] = (
         doc.env["ir.config_parameter"].sudo().get_param("web.base.url", "")
     )
-    d["send_mail"] = bool(doc.env["ir.config_parameter"].sudo().get_param("frappe_etax_service.is_send_etax_email")) and 'Y' or 'N'
+    d["send_mail"] = 'Y' if doc.env["ir.config_parameter"].sudo().get_param("frappe_etax_service.is_send_etax_email") == 'True' else 'N'
     d["seller_tax_id"] = doc.company_id.vat
     d["buyer_name"] = doc.partner_id.name
     d["buyer_type"] = "TXID"  # TXID, NIDN, CCPT, OTHR (no taxid)
     d["buyer_tax_id"] = doc.partner_id.vat
     d["buyer_branch_id"] = doc.partner_id.taxbranch or "00000"
-    d["buyer_email"] = doc.partner_id.email
+    d["buyer_email"] = doc.partner_id.email_etax
     d["buyer_zip"] = doc.partner_id.zip
     d["buyer_building_name"] = ""
     d["buyer_building_no"] = ""
