@@ -15,7 +15,7 @@ def prepare_data_invoice(doc):
     d["document_issue_dtm"] = doc.date_invoice + "T00:00:00"
     d["create_purpose_code"] = doc.create_purpose_code
     d["create_purpose"] = doc.create_purpose
-    d["ref_document_id"] = doc.origin
+    d["ref_document_id"] = doc._get_origin_data() and doc.origin or ""
     d["ref_document_issue_dtm"] = doc._get_origin_data()[0]
     d["ref_document_type_code"] = doc._get_origin_data()[1]
     d["buyer_ref_document"] = doc.origin and doc.origin or ""
