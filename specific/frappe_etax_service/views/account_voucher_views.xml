@@ -96,6 +96,21 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="view_voucher_filter_customer_pay" model="ir.ui.view">
+            <field name="name">account.voucher.customer.pay.select</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_filter_customer_pay"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/filter[last()]" position="after">
+                    <filter
+                        string="e-Tax Status"
+                        name="groupby_etax_status"
+                        context="{'group_by':'etax_status'}"
+                    />
+            </xpath>
+            </field>
+        </record>
     </data>
 
 </openerp>
