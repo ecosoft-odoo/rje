@@ -29,13 +29,13 @@ class account_invoice(osv.osv):
                     origin etax_doctype
         """
         if self.origin:
-            self._cr.execute("SELECT date_invoice, etax_doctype FROM account_invoice WHERE preprint_number = %s::varchar",
+            self._cr.execute("SELECT date_invoice, etax_doctype, origin FROM account_invoice WHERE preprint_number = %s::varchar",
                  (self.origin,))
             data = self._cr.fetchone()
             if data:
                 # Date in INET should in format "%Y-%m-%dT%H:%M:%S"
-                return (data[0] + "T00:00:00", data[1])
-        return ("", "")
+                return (data[0] + "T00:00:00", data[1], data[2])
+        return ("", "", "")
 
     def _get_additional_amount(self):
         """

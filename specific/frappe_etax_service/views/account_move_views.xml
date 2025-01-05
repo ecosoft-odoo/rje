@@ -130,5 +130,17 @@
                 </xpath>
             </field>
         </record> -->
+        <record id="view_account_invoice_filter" model="ir.ui.view">
+            <field name="name">view.account.invoice.filter.ext</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <search position="inside">
+                    <group expand="0" string="Group By">
+                    	<filter name="group_by_etax_status" string="e-Tax Status" context="{'group_by':'etax_status'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
     </data>
 </openerp>
