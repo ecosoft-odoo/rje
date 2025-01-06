@@ -12,7 +12,7 @@ class AccountDebitNote(models.TransientModel):
     _inherit = "account.debitnote"
 
     purpose_code_id = fields.Many2one(
-        "purpose.code", string="Refund Reason", domain="[('is_credit_note', '=', True)]"
+        "purpose.code", string="Refund Reason", domain="[('is_debit_note', '=', True)]"
     )
     purpose_code = fields.Char(string="Purpose Code")
 
@@ -21,7 +21,7 @@ class AccountDebitNote(models.TransientModel):
         if self.purpose_code_id:
             self.purpose_code = self.purpose_code_id.code
             self.reason = (
-                (self.purpose_code_id.code != "CDNG99")
+                (self.purpose_code_id.code != "DBNG99")
                 and self.purpose_code_id.name
                 or ""
             )
@@ -34,7 +34,7 @@ class AccountDebitNote(models.TransientModel):
         for form in self:
             purpose_code_id = form.purpose_code_id
             reason = form.reason
-            origin = form.preprint_number
+            origin = inv_obj.browse(cr, uid, context.get('active_id'), context=context).preprint_number
             if created_inv:
                 for inv in created_inv:
                     inv.write(

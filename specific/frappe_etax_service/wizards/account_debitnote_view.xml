@@ -9,7 +9,7 @@
                 <xpath expr="//field[@name='description']" position="attributes">
                     <attribute
                         name="attrs"
-                    >{'invisible': [('purpose_code', '!=', 'CDNG99')], 'required': [('purpose_code', '==', 'CDNG99')]}</attribute>
+                    >{'invisible': [('purpose_code', '!=', 'DBNG99')], 'required': [('purpose_code', '==', 'DBNG99')]}</attribute>
                 </xpath>
                 <xpath expr="//field[@name='description']" position="before">
                     <field name="purpose_code" invisible="1" />
