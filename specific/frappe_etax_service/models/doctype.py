@@ -36,6 +36,7 @@ class DocType(osv.osv):
             help='Select source template between Odoo and Frappe',
         ),
         'doctype_code': fields.selection(
+            string='Code',
             selection=[
                 ('388', '388 ใบกํากับภาษี'),
                 ('T02', 'T02 ใบแจ้งหนี้/ใบกํากับภาษี'),

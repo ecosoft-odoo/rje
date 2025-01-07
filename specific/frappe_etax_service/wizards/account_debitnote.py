@@ -20,7 +20,7 @@ class AccountDebitNote(models.TransientModel):
     def _onchange_purpose_code_id(self):
         if self.purpose_code_id:
             self.purpose_code = self.purpose_code_id.code
-            self.reason = (
+            self.description = (
                 (self.purpose_code_id.code != "DBNG99")
                 and self.purpose_code_id.name
                 or ""
@@ -33,7 +33,7 @@ class AccountDebitNote(models.TransientModel):
         created_inv = inv_obj.browse(result["domain"][1][2])
         for form in self:
             purpose_code_id = form.purpose_code_id
-            reason = form.reason
+            description = form.description
             origin = inv_obj.browse(cr, uid, context.get('active_id'), context=context).preprint_number
             if created_inv:
                 for inv in created_inv:
@@ -41,7 +41,7 @@ class AccountDebitNote(models.TransientModel):
                         {
                             "origin": origin,
                             "create_purpose_code": purpose_code_id.code,
-                            "create_purpose": reason,
+                            "create_purpose": description,
                         }
                     )
         return result
