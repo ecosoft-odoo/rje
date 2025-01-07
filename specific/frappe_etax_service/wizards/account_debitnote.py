@@ -4,9 +4,10 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 ##############################################################################
 
-
+import logging
 from openerp import models, fields, api, _
 
+_logger = logging.getLogger(__name__)
 
 class AccountDebitNote(models.TransientModel):
     _inherit = "account.debitnote"
@@ -29,12 +30,12 @@ class AccountDebitNote(models.TransientModel):
     @api.multi
     def invoice_debitnote(self):
         result = super(AccountDebitNote, self).invoice_debitnote()
-        inv_obj = self.env["account.invoice"]
-        created_inv = inv_obj.browse(result["domain"][1][2])
+        inv_obj = self.pool.get('account.invoice')
+        created_inv = inv_obj.browse(self._cr, self._uid, result['domain'][0][2])
         for form in self:
             purpose_code_id = form.purpose_code_id
             description = form.description
-            origin = inv_obj.browse(cr, uid, context.get('active_id'), context=context).preprint_number
+            origin = inv_obj.browse(self._cr, self._uid, self._context.get('active_id')).preprint_number
             if created_inv:
                 for inv in created_inv:
                     inv.write(

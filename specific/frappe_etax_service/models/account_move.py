@@ -4,10 +4,14 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 ##############################################################################
 
+import logging
+
 from openerp import models, fields, api, _
 from openerp.exceptions import ValidationError
 from openerp.osv import osv, fields
 from datetime import datetime
+
+_logger = logging.getLogger(__name__)
 
 class account_invoice(osv.osv):
     _name = 'account.invoice'
@@ -29,12 +33,12 @@ class account_invoice(osv.osv):
                     origin etax_doctype
         """
         if self.origin:
-            self._cr.execute("SELECT date_invoice, etax_doctype, origin FROM account_invoice WHERE preprint_number = %s::varchar",
+            self._cr.execute("SELECT date_invoice, etax_doctype FROM account_invoice WHERE preprint_number = %s::varchar",
                  (self.origin,))
             data = self._cr.fetchone()
             if data:
                 # Date in INET should in format "%Y-%m-%dT%H:%M:%S"
-                return (data[0] + "T00:00:00", data[1], data[2])
+                return (data[0] + "T00:00:00", data[1], self.origin)
         return ("", "", "")
 
     def _get_additional_amount(self):
