@@ -32,19 +32,16 @@ class account_invoice(osv.osv):
                 Credit/Debit Note
         """
         data = ["", ""]
-        # Get po number and payment terms in case of credit note, debit note
-        if self.origin_invoice_id:
-            po_number = self.origin_invoice_id.name
-            payment_term = self.origin_invoice_id.payment_term.name
-            data[0] = po_number and po_number or ""
-            data[1] = payment_term and payment_term or ""
-            return data
-
         # Get po number and payment terms from invoice
         po_number = self.name
         payment_term = self.payment_term.name
         data[0] = po_number and po_number or ""
         data[1] = payment_term and payment_term or ""
+
+        # Get po number in case of credit note, debit note
+        if self.origin_invoice_id:
+            po_number = self.origin_invoice_id.name
+            data[0] = po_number and po_number or ""
         return data
 
     def _get_origin_data(self):
@@ -71,17 +68,15 @@ class account_invoice(osv.osv):
             f38_line_total_amount = corrected_amount_untaxed
         """
         original_amount_untaxed = corrected_amount_untaxed = diff_amount_untaxed = 0.00
-        if self.origin:
-            self._cr.execute("SELECT amount_untaxed FROM account_invoice WHERE preprint_number = %s::varchar",
-                 (self.origin,))
-            data = self._cr.fetchone()
-            if data:
-                original_amount_untaxed = data[0]
-                diff_amount_untaxed = self.amount_untaxed
-                if original_amount_untaxed > diff_amount_untaxed:
-                    corrected_amount_untaxed = original_amount_untaxed - diff_amount_untaxed
-                elif original_amount_untaxed < diff_amount_untaxed:
-                    corrected_amount_untaxed = diff_amount_untaxed + original_amount_untaxed
+        if self.origin_invoice_id:
+            original_amount_untaxed = self.origin_invoice_id.amount_untaxed
+            diff_amount_untaxed = self.amount_untaxed
+            # credit note
+            if self.type == "out_refund":
+                corrected_amount_untaxed = original_amount_untaxed - diff_amount_untaxed
+            # debit note
+            elif self.type == "out_invoice":
+                corrected_amount_untaxed = original_amount_untaxed + diff_amount_untaxed
         if self.replaced_entry_id:
             original_amount_untaxed = 0.00
             diff_amount_untaxed = 0.00
