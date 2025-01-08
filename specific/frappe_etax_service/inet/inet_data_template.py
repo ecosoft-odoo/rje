@@ -37,9 +37,9 @@ def prepare_data_invoice(doc):
     d["buyer_address_line2"] = doc.partner_id.street2
     d["buyer_address_line3"] = ""
     # buyer_address_line4 use for send PO number
-    d["buyer_address_line4"] = doc._get_po_number_payment_terms[0]
+    d["buyer_address_line4"] = doc._get_po_number_payment_terms()[0]
     # buyer_address_line5 use for payment term
-    d["buyer_address_line5"] = doc._get_po_number_payment_terms[1]
+    d["buyer_address_line5"] = doc._get_po_number_payment_terms()[1]
     d["buyer_city_name"] = doc.partner_id.city
     d["buyer_country_code"] = (
         doc.partner_id.country_id and doc.partner_id.country_id.code or ""
@@ -68,7 +68,7 @@ def prepare_data_invoice(doc):
     d["line_item_information"] = doc_lines
     d["original_amount_untaxed"] = doc._get_additional_amount()[0]
     d["final_amount_untaxed"] = doc._get_additional_amount()[2]
-    d["adjust_amount_untaxed"] = doc._get_additional_amount()[2]
+    d["adjust_amount_untaxed"] = doc._get_additional_amount()[1]
     return d
 
 
