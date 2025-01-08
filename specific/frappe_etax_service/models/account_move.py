@@ -26,6 +26,27 @@ class account_invoice(osv.osv):
         if "branch_id" in self.env["account.invoice"]._fields:
             return self.branch_id.name
 
+    def _get_po_number_payment_terms(self):
+        """
+        Case:   Invoice
+                Credit/Debit Note
+        """
+        data = ["", ""]
+        # Get po number and payment terms in case of credit note, debit note
+        if self.origin_invoice_id:
+            po_number = self.origin_invoice_id.name
+            payment_term = self.origin_invoice_id.payment_term.name
+            data[0] = po_number and po_number or ""
+            data[1] = payment_term and payment_term or ""
+            return data
+
+        # Get po number and payment terms from invoice
+        po_number = self.name
+        payment_term = self.payment_term.name
+        data[0] = po_number and po_number or ""
+        data[1] = payment_term and payment_term or ""
+        return data
+
     def _get_origin_data(self):
         """
         If invoice has origin invoice (e.g. credit note, debit note, replacement tax invoice)
