@@ -50,6 +50,10 @@ class account_invoice(osv.osv):
         Query:  Get origin date_invoice
                     origin etax_doctype
         """
+        # Case: Replacement Tax Invoice
+        if self.replaced_entry_id:
+            return (self.replaced_entry_id.date_invoice + "T00:00:00", self.replaced_entry_id.etax_doctype, self.replaced_entry_id.preprint_number)
+        # Case: Credit Note, Debit Note
         if self.origin:
             self._cr.execute("SELECT date_invoice, etax_doctype FROM account_invoice WHERE preprint_number = %s::varchar",
                  (self.origin,))
