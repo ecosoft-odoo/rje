@@ -51,9 +51,10 @@ def prepare_data_invoice(doc):
         doc_lines.append(
             {
                 "product_code": line.product_id and line.product_id.default_code or "",
-                "product_name": line.product_id and line.product_id.name or line.name,
+                "product_name": line.name,
                 "product_price": line.price_unit,
                 "product_quantity": line.quantity,
+                "product_unit_code": line.uos_id and line.uos_id.name or "PCS",
                 "line_tax_type_code": line.invoice_line_tax_id.name and "VAT" or "FRE",
                 "line_tax_rate": line.invoice_line_tax_id and line.invoice_line_tax_id[0].amount or 0.00,
                 "line_base_amount": line.invoice_line_tax_id and line.price_subtotal or 0.00,
